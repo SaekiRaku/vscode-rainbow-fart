@@ -1,0 +1,53 @@
+{
+    "publisher": "saekiraku",
+    "icon": "resources/logo.png",
+    "name": "rainbow-fart",
+    "displayName": "Rainbow Fart",
+    "description": "This extension will keep giving you compliment while you are coding.",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+    "repository": {
+        "url": "https://github.com/SaekiRaku/vscode-rainbow-fart"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:rainbow-fart.enable"
+    ],
+    "main": "./src/index.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "rainbow-fart.enable",
+                "title": "🌈 Enable Rainbow Fart"
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js",
+        "build": "vsce package"
+    },
+    "devDependencies": {
+        "@tybys/cross-zip": "^3.0.4",
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.11.0",
+        "@types/vscode": "^1.44.0",
+        "eslint": "^6.8.0",
+        "esm": "^3.2.25",
+        "glob": "^7.1.6",
+        "mocha": "^7.1.1",
+        "typescript": "^3.8.3",
+        "vscode-test": "^1.3.0"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "get-port": "^5.1.1",
+        "open": "^7.0.4"
+    }
+}
