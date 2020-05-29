@@ -1,0 +1,18 @@
+@media screen and (max-width: 768px) {
+  .headline {
+    font-size: 32px;
+  }
+  .video {
+    min-width: unset;
+    height: unset;
+    width: calc(100% - 32px);
+    margin: 16px;
+  }
+  ol,
+  ul {
+    width: 100%;
+  }
+  img {
+    max-width: 100%;
+  }
+}

@@ -162,8 +162,8 @@ BODY {
   box-shadow: rgba(33, 33, 33, 0.1) 0px 8px 16px;
 }
 img {
-  border-radius: 10px;
-  box-shadow: rgba(33, 33, 33, 0.1) 0px 8px 16px;
+  border-radius: 5px;
+  max-height: 96px;
 }
 strong {
   color: red;
@@ -190,4 +190,22 @@ ul li p {
 }
 .contributor td {
   padding: 16px;
+}
+@media screen and (max-width: 768px) {
+  .headline {
+    font-size: 32px;
+  }
+  .video {
+    min-width: unset;
+    height: unset;
+    width: calc(100% - 32px);
+    margin: 16px;
+  }
+  ol,
+  ul {
+    width: 100%;
+  }
+  img {
+    max-width: 100%;
+  }
 }
