@@ -24,7 +24,7 @@ module.exports = async function () {
 
     const app = express();
 
-    app.use(express.static(__dirname + "/page"));
+    app.use(express.static(__dirname + "/page/dist"));
     app.use("/sounds", express.static(__dirname + "/sounds"));
     app.get("/playsound", (req, res) => {
         share.playsoundRes = res;

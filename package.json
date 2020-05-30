@@ -4,7 +4,7 @@
     "name": "rainbow-fart",
     "displayName": "🌈 Rainbow Fart",
     "description": "This extension will keep giving you compliment while you are coding.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "engines": {
         "vscode": "^1.44.0"
     },
@@ -27,27 +27,25 @@
         ]
     },
     "scripts": {
-        "lint": "eslint .",
-        "pretest": "npm run lint",
-        "test": "node ./test/runTest.js",
-        "build": "vsce package"
+        "dev:page": "parcel         src/page/src/index.html -d src/page/dist --cache-dir src/page/.cache",
+        "build:page": "parcel build src/page/src/index.html -d src/page/dist --cache-dir src/page/.cache --no-minify",
+        "build": "npm run build:page && vsce package"
     },
     "devDependencies": {
-        "@tybys/cross-zip": "^3.0.4",
-        "@types/glob": "^7.1.1",
-        "@types/mocha": "^7.0.2",
+        "@qiqi1996/qi-design-vue": "^0.9.0",
         "@types/node": "^13.11.0",
         "@types/vscode": "^1.44.0",
-        "eslint": "^6.8.0",
+        "@vue/component-compiler-utils": "^3.1.2",
         "esm": "^3.2.25",
-        "glob": "^7.1.6",
-        "mocha": "^7.1.1",
-        "typescript": "^3.8.3",
-        "vscode-test": "^1.3.0"
+        "less": "^3.11.1",
+        "parcel-bundler": "^1.12.4",
+        "vue": "^2.6.11",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
         "express": "^4.17.1",
         "get-port": "^5.1.1",
-        "open": "^7.0.4"
+        "open": "^7.0.4",
+        "vue-hot-reload-api": "^2.3.4"
     }
 }

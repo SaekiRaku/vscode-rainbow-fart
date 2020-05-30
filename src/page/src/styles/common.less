@@ -1,0 +1,39 @@
+@import "./reset.less";
+
+BODY, HTML, #app {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+#app {
+    text-align: center;
+}
+
+.rainbow {
+    animation: rainbow 21s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { color: orangered; }
+    14% { color: orange; }
+    28% { color: yellowgreen; }
+    42% { color: green; }
+    56% { color: aquamarine; }
+    70% { color: cornflowerblue; }
+    84% { color: purple; }
+    100% { color: orangered; }
+}
+
+@-webkit-keyframes rainbow {
+    0% { color: orangered; }
+    14% { color: orange; }
+    28% { color: yellowgreen; }
+    42% { color: green; }
+    56% { color: aquamarine; }
+    70% { color: cornflowerblue; }
+    84% { color: purple; }
+    100% { color: orangered; }
+}

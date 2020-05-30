@@ -9,3 +9,5 @@ vsc-extension-quickstart.md
 
 assets/
 docs/
+src/page/src/
+src/page/.cache/

@@ -1,0 +1,9 @@
+{
+	"Import Standard Less": {
+        "scope": "css,less",
+        "prefix": ["import-standard", "is"],
+        "body": [
+            "@import \"~@qiqi1996/qi-design-vue/standard.less\";"
+        ]
+    }
+}
