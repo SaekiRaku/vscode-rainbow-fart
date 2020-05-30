@@ -14,6 +14,6 @@
 
 ## English Description
 
-This is a VSCode extension that keep giving you compliment while you are coding, for example when you type `function` it will play sound that says you wrote a such a good function. However the sounds is recorded in Chinese, so it's may not fuitable for you. But you can still modify the source code, like add English version compliment sound file.
+This is a VSCode extension that keeps giving you compliment while you are coding, for example when you type `function` it will play sound that says you wrote a such good function. However the sounds is recorded in Chinese, so it's may not suitable for you. But you can still modify the source code, like add English version compliment sound file.
 
 Rainbow Fart is a literal translation word from Chinese, it's mean give somebody exaggerated compliment that even seems a little fake. So it's not involved any connection with gay group or something else.
