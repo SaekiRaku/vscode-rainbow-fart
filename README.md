@@ -34,11 +34,13 @@ Q：安装扩展时 VSCode 提示不兼容。
 A：请修改 `package.json` 中 `engines.vscode` 和 `devDependencies.@types/vscode` 字段为你当前的 VSCode 版本号（如下），然后在进入当前目录的终端运行 `npm i && npm run build`。 此时在工作区目录下将产生新编译的扩展，安装即可。详情请看：[Issue #1](https://github.com/SaekiRaku/vscode-rainbow-fart/issues/1)
 
 ```json
-"engines": {
-    "vscode": "^[当前版本号]",
-    "devDependencies": {
-        "@types/vscode": "^1.33.0",
-    }
+{
+  "engines": {
+      "vscode": "^[当前版本号]",
+  },
+  "devDependencies": {
+      "@types/vscode": "^1.33.0",
+  }
 }
 ```
 
