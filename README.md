@@ -39,7 +39,7 @@ A：请修改 `package.json` 中 `engines.vscode` 和 `devDependencies.@types/vs
       "vscode": "^[当前版本号]",
   },
   "devDependencies": {
-      "@types/vscode": "^1.33.0",
+      "@types/vscode": "^[当前版本号]",
   }
 }
 ```
