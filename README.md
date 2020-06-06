@@ -28,6 +28,22 @@ Rainbow Fart is a literal translation word from Chinese, it's mean give somebody
 * 界面 I18N
 * 触发频次调节
 
+## Q&A
+
+Q：安装扩展时 VSCode 提示不兼容。  
+A：请修改 `package.json` 中 `engines.vscode` 和 `devDependencies.@types/vscode` 字段为你当前的 VSCode 版本号（如下），然后在进入当前目录的终端运行 `npm i && npm run build`。 此时在工作区目录下将产生新编译的扩展，安装即可。详情请看：[Issue #1](https://github.com/SaekiRaku/vscode-rainbow-fart/issues/1)
+
+```json
+{
+  "engines": {
+      "vscode": "^[当前版本号]",
+  },
+  "devDependencies": {
+      "@types/vscode": "^[当前版本号]",
+  }
+}
+```
+
 ## 许可
 
 基于 MIT 开源，包括所有设计资源及音频资源。此外，由于仓库中的音频资源大部分由真人录音，并且根据 MIT 被授权人义务。在此明确：尤其的对于仓库中多媒体资源，您有（单独）标明资源原作者、链接、许可的义务。
