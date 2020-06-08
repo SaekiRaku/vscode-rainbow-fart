@@ -1,0 +1,8 @@
+{
+    "contributes": [
+        {
+            "keywords": ["function", "=>"],
+            "voices":["function.mp3"]
+        }
+    ]
+}

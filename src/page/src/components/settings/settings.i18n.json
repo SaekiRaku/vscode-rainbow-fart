@@ -1,0 +1,14 @@
+{
+    "en": {
+        "voice-packages": "Voice Packages",
+        "customization": "Customization",
+        "preference": "Preference",
+        "about": "About"
+    },
+    "zh": {
+        "voice-packages": "语音包",
+        "customization": "定制",
+        "preference": "偏好设置",
+        "about": "关于"
+    }
+}

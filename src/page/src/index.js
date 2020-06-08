@@ -1,14 +1,36 @@
+import 'regenerator-runtime/runtime';
 import Vue from "vue/dist/vue.js";
+import VueI18N from "vue-i18n";
 import QiDesignVue from "@qiqi1996/qi-design-vue";
 import "@qiqi1996/qi-design-vue/style.css";
 import "./styles/common.less";
 
 import App from "./app.vue";
 
+Vue.use(VueI18N);
 Vue.use(QiDesignVue);
+
+var locale = "en";
+const currentLanguage = navigator.language;
+const supportLanguage = ["en", "zh"]
+if (supportLanguage.indexOf(currentLanguage) != -1) {
+    locale = currentLanguage
+} else {
+    for (let lang of supportLanguage) {
+        if (currentLanguage.indexOf(lang) == 0) {
+            locale = lang;
+            break;
+        }
+    }
+}
+const i18n = new VueI18N({
+    // locale,
+    silentFallbackWarn: true,
+})
 
 const vm = new Vue({
     el: "#app",
+    i18n,
     render: (h)=>h(App)
 })
 

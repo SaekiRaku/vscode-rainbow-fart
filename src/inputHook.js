@@ -1,50 +1,51 @@
 const vscode = require("vscode");
-const soundMap = require("./soundMap.js");
-const soundManager = require("./soundManager.js");
+
+const share = require("./share.js");
 
 var inputHistory = "";
 
-function haveKeyword(content, keyword) {
-    return (content.indexOf(keyword) != -1)
-}
+function keywordsCheck() {
+    var candidate = [];
 
-function keywordsCheck(content) {
-    if (content.length > 30) {
-        // Some user may enabled the `format on save`, that will also cause `onDidChangeTextDocument` event.
-        // If contents are too large, it's may not a kewyword.
-        return;
-    }
-    inputHistory += content;
-    if (inputHistory.length > 100) {
-        inputHistory = inputHistory.slice(inputHistory.length - 100 - 1);
-    }
-    for (let i in soundMap) {
-        let item = soundMap[i]
-        let have = false;
-        if (Array.isArray(item.keywords)) {
-            item.keywords.forEach(keyword => {
-                if (haveKeyword(inputHistory, keyword)) {
-                    have = true;
+    share.maindata.forEach(voicePackage => {
+        voicePackage.contributes.forEach(contribute => {
+            if (!Array.isArray(contribute.keywords)) {
+                contribute.keywords = [contribute.keywords];
+            }
+            contribute.keywords.forEach(keyword => {
+                if (inputHistory.indexOf(keyword) != -1) {
+                    if (!Array.isArray(contribute.voices)) {
+                        contribute.voices = [contribute.voices];
+                    }
+                    candidate.push(voicePackage.name + "/" + contribute.voices[Math.floor(contribute.voices.length * Math.random())])
                 }
-            });
-        } else if(typeof item.keywords === "string"){
-            have = haveKeyword(inputHistory, item.keywords)
-        } else {
-            return;
-        }
+            })
+        });
+    });
 
-        if (have) {
-            inputHistory = "";
-            soundManager.play(item.sounds[Math.floor(Math.random() * item.sounds.length)]);
-            break;
-        }
+    if (candidate.length) {
+        inputHistory = "";
+        share.play(candidate[Math.floor(Math.random() * candidate.length)]);
     }
 }
 
 module.exports = function () {
     vscode.workspace.onDidChangeTextDocument(evt => {
         evt.contentChanges.forEach(change => {
-            keywordsCheck(change.text);
+            if (change.text.length > 30) {
+                // Some user may enabled the `format on save`, that will also cause `onDidChangeTextDocument` event.
+                // So, If contents are too large, it's may not a keyword.
+                return;
+            }
+            inputHistory += change.text;
+            if (inputHistory.length > 100) {
+                inputHistory = inputHistory.slice(inputHistory.length - 100 - 1);
+            }
+            try {
+                keywordsCheck();
+            } catch (e) {
+                console.error(e);
+            }
         })
     })
 }

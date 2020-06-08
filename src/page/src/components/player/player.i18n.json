@@ -1,0 +1,16 @@
+{
+    "en": {
+        "permission-required": "Please click here to authorize the permission of playing sounds.<br />You will hear a piano sound that indicate succeeded.",
+        "permission-why": "Why? How does it work?",
+        "permission-explain": "In order to reduce the size of VSCode, the media module didn't ship with it, so Rainbow Fart has to use web browser to do the job. But in some browsers, it is not able to play audio until user have interaction with browser.",
+        "authorized": "Successfully authorized. Enjoy coding!",
+        "authorized-tip": "Please keep this page open while you are coding."
+    },
+    "zh": {
+        "permission-required": "请点击此处以授权音频播放<br />您将听到钢琴的声音以表示成功。",
+        "permission-why": "为什么？它是如何工作的？",
+        "permission-explain": "为了缩减 VSCode 的体积，媒体相关的模块并没有随 VSCode 一起提供，因此 Rainbow Fart 必须经由浏览器来播放音频。但是，一些浏览器直到与用户产生交互之前，是不能播放音频的。",
+        "authorized": "授权成功，祝您编码愉快！",
+        "authorized-tip": "编码时请保持当前页面打开"
+    }
+}

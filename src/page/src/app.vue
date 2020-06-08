@@ -1,40 +1,31 @@
 <template>
     <q-panel class="page" :theme="store.theme" :color="store.color">
-        <div class="action-bar">
-            <div class="theme-switcher" @click="toggleTheme">
-                <q-text>夜间模式</q-text>
-                <q-switch size="small" :value="store.isDarkModeEnabled"></q-switch>
+        <div class="layout-left-background" :style="{ backgroundImage: `url(${background})`}"></div>
+        <div class="layout-left">
+            <div class="margin-block">
+                <q-title class="headline" :level="1" colorful>RAINBOW<br>FART</q-title>
+                <q-text class="description" mode="normal">{{ $t("description") }}</q-text>
+                <q-popover position="bottom-left" :text="$t('tip-rainbow-fart-content')" width="240px">
+                    <q-footnote class="tip" mode="normal" v-show="locale != 'zh'"><q-icon name="question-circle"></q-icon> {{ $t("tip-rainbow-fart") }}</q-footnote>
+                </q-popover>
             </div>
-
-            <q-divider type="vertical" style="height: 16px"></q-divider>
+        </div>
+        <div class="layout-actions">
+            <span class="dark-mode" @click="toggleTheme">
+                <q-text>{{ $t("dark-mode") }}</q-text>
+                <q-switch size="small" :value="store.isDarkModeEnabled"></q-switch>
+            </span>
+            <q-divider type="vertical" style="height: 8px"></q-divider>
             <q-button size="small" icon="open" href="https://github.com/SaekiRaku/vscode-rainbow-fart">GitHub</q-button>
         </div>
-
-        <div class="header">
-            <q-title class="title rainbow" :level="1">🌈 RAINBOW FART</q-title>
-            <q-text class="description">这是一个在你编程时疯狂称赞你的 VSCode 扩展</q-text>
-            <q-footnote class="footnote">编码时请保持本页面开启，建议使用 Chrome 浏览器。</q-footnote>
+        <div class="layout-right">
+            <div class="margin-block">
+                <q-title :level="1">{{ $t("permission-required") }}</q-title>
+                <player></player>
+                <q-title :level="1">{{ $t("settings") }}</q-title>
+                <settings></settings>
+            </div>
         </div>
-
-        <player class="player"></player>
-
-        <q-divider class="divider"></q-divider>
-
-        <q-title :level="3" style="margin-bottom: 32px">更多内容</q-title>
-
-        <div class="extra-content">
-            <q-panel class="item" border>
-                <q-collapse collapse title="声音贡献" :value="true">
-                    <contributor-list></contributor-list>
-                </q-collapse>
-            </q-panel>
-            <q-panel class="item" border>
-                <q-collapse collapse title="已知问题">
-                    <q-text>Safari 浏览器处于后台时，与 VSCode 的网络请求会中断且不再重连</q-text>
-                </q-collapse>
-            </q-panel>
-        </div>
-
     </q-panel>
 </template>
 
@@ -43,60 +34,80 @@
 
 .page {
     width: 100%;
-    height: calc(~"100% - 120px");
-    overflow: auto;
-    text-align: center;
-    padding-top: 120px;
+    height: 100%;
 
-    .action-bar {
-        padding: 2*@grid;
+    .layout-left, .layout-right, .layout-left-background{
+        height: 100%;
         position: absolute;
-        top: 0px;
-        left: 0px;
-        width: calc(~"100% - "2*2*@grid);
-        text-align: right;
 
-        .theme-switcher {
-            cursor: pointer;
-            .q-switch {
-                pointer-events: none;
-            }
+        .margin-block {
+            margin: 12*@grid;
         }
+    }
+
+    .layout-left-background {
+        opacity: 0.15;
+        width: 38.2%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        left: 0px;
+        top: 0px;
+    }
+
+    .layout-actions {
+        position: absolute;
+        left: 12*@grid;
+        bottom: 12*@grid;
 
         * {
             display: inline-block;
             vertical-align: middle;
             margin: 0px @grid/2;
         }
+
+        .dark-mode {
+            cursor: pointer;
+
+            .q-switch {
+                pointer-events: none;
+            }
+        }
     }
 
-    .header {
-        .title {
-            margin-bottom: 4*@grid;
+    .layout-left {
+        .noselect();
+        width: 38.2%;
+        left: 0px;
+        top: 0px;
+
+        .headline {
+            font-size: 48px;
+            line-height: 72px;
+            letter-spacing: 16px;
+            font-weight: bolder;
         }
 
         .description {
-            margin-bottom: 2*@grid;
+            margin-top: 4*@grid;
+        }
+
+        .tip {
+            margin-top: @grid;
         }
     }
 
-    .player {
-        display: inline-block;
-        margin-top: 6*@grid;
-    }
+    .layout-right {
+        width: 61.8%;
+        right: 0px;
+        top: 0px;
 
-    .divider {
-        margin: 6*@grid 0px;
-    }
+        .margin-block {
+            // max-width: 720px;
+        }
 
-    .extra-content {
-        width: 38.2%;
-        margin: 0px auto;
-        text-align: left;
-        padding-bottom: 120px;
-
-        .item {
-            margin-bottom: 2*@grid;
+        .q-title {
+            margin-top: 6*@grid;
+            margin-bottom: 3*@grid;
         }
     }
 }
@@ -105,18 +116,48 @@
 <script>
 import store from "/store.js";
 
-import player from "./components/player.vue";
-import contributorList from "./components/contributor-list.vue";
+import player from "./components/player/index.vue";
+import settings from "./components/settings/index.vue";
+
+import messages from "./app.i18n.json";
+import background1 from "./assets/background/1.jpg";
+import background2 from "./assets/background/2.jpg";
+import background3 from "./assets/background/3.jpg";
+import background4 from "./assets/background/4.jpg";
+import background5 from "./assets/background/5.jpg";
+import background6 from "./assets/background/6.jpg";
+import background7 from "./assets/background/7.jpg";
+import background8 from "./assets/background/8.jpg";
+import background9 from "./assets/background/9.jpg";
+import background10 from "./assets/background/10.jpg";
+
+const backgroundList = [
+    background1,
+    background2,
+    background3,
+    background4,
+    background5,
+    background6,
+    background7,
+    background8,
+    background9,
+    background10
+]
 
 export default {
     components: {
         player,
-        contributorList
+        settings
+    },
+    i18n: {
+        messages
     },
     data(){
         return {
+            locale: this.$i18n.locale,
             store,
             manual: false,
+            background: backgroundList[Math.floor(Math.random() * backgroundList.length)],
         }
     },
     mounted(){
