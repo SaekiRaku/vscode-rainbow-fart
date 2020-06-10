@@ -1,15 +1,18 @@
 const path = require("path");
 const share = require("./share.js");
-const initAssets = require("./initAssets.js");
+const assets = require("./assets.js");
 const initCommands = require("./commands.js");
+const initTimerHook = require("./timerHook.js");
 const initInputHook = require("./inputHook.js");
 const initService = require("./service.js");
 
 function activate(context) {
     share.PATH_GLOBAL = context.globalStoragePath;
+    share.PATH_TEMP = path.resolve(share.PATH_GLOBAL, "temp");
     share.PATH_VOICE_PACKAGES = path.resolve(share.PATH_GLOBAL, "voice-packages");
 
-    initAssets(context);
+    assets.init();
+    initTimerHook(); 
     initCommands(context);
     initInputHook();
     initService();

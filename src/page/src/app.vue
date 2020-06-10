@@ -6,7 +6,7 @@
                 <q-title class="headline" :level="1" colorful>RAINBOW<br>FART</q-title>
                 <q-text class="description" mode="normal">{{ $t("description") }}</q-text>
                 <q-popover position="bottom-left" :text="$t('tip-rainbow-fart-content')" width="240px">
-                    <q-footnote class="tip" mode="normal" v-show="locale != 'zh'"><q-icon name="question-circle"></q-icon> {{ $t("tip-rainbow-fart") }}</q-footnote>
+                    <q-footnote class="tip" mode="normal" v-show="store.i18n.locale != 'zh'"><q-icon name="question-circle"></q-icon> {{ $t("tip-rainbow-fart") }}</q-footnote>
                 </q-popover>
             </div>
         </div>
@@ -16,6 +16,13 @@
                 <q-switch size="small" :value="store.isDarkModeEnabled"></q-switch>
             </span>
             <q-divider type="vertical" style="height: 8px"></q-divider>
+            <q-popover>
+                <q-button size="small" icon="earth">Language</q-button>
+                <div class="popover-language" slot="content">
+                    <q-radio v-model="store.i18n.locale" value="zh">简体中文</q-radio>
+                    <q-radio v-model="store.i18n.locale" value="en">English</q-radio>
+                </div>
+            </q-popover>
             <q-button size="small" icon="open" href="https://github.com/SaekiRaku/vscode-rainbow-fart">GitHub</q-button>
         </div>
         <div class="layout-right">
@@ -72,6 +79,14 @@
                 pointer-events: none;
             }
         }
+
+        .popover-language {
+            padding: @grid;
+            * {
+                white-space: nowrap;
+                line-height: 32px;
+            }
+        }
     }
 
     .layout-left {
@@ -100,6 +115,7 @@
         width: 61.8%;
         right: 0px;
         top: 0px;
+        overflow: auto;
 
         .margin-block {
             // max-width: 720px;
@@ -154,7 +170,6 @@ export default {
     },
     data(){
         return {
-            locale: this.$i18n.locale,
             store,
             manual: false,
             background: backgroundList[Math.floor(Math.random() * backgroundList.length)],

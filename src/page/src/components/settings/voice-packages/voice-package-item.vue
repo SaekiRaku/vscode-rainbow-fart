@@ -3,7 +3,7 @@
         <q-switch class="active-switch"></q-switch>
         <q-avatar :src="avatarLight" :src-dark="avatarDark" shape="rounded-square" size="large"></q-avatar>
         <div class="info">
-            <q-title :level="3">{{ data["display-name"] }}</q-title>
+            <q-title :level="3">{{ data["display-name"] || data["name"] }}</q-title>
             <q-footnote mode="normal">{{ data["description"] }}</q-footnote>
         </div>
         <q-divider class="divider"></q-divider>
@@ -25,7 +25,7 @@
 
             <q-theme class="panel-item" style="float: right;" color="enjolras">
                 <q-icon name="trash"></q-icon>
-                <q-text><strong>Remove</strong></q-text>
+                <q-text @click.native="doRemove"><strong>{{ $t("remove") }}</strong></q-text>
             </q-theme>
         </div>
     </q-panel>
@@ -94,6 +94,8 @@
 </style>
 
 <script>
+import axios from "axios";;
+
 import defaultAvatarLight from "./default-avatar-light.png";
 import defaultAvatarDark from "./default-avatar-dark.png";
 import messages from "./voice-package-item.i18n.json";
@@ -124,6 +126,11 @@ export default {
                 return avatar;
             }
             return defaultAvatarDark;
+        }
+    },
+    methods: {
+        doRemove(){
+            this.$emit("remove", {name:this.data.name});
         }
     }
 }

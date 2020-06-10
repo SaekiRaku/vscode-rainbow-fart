@@ -2,7 +2,102 @@
     "contributes": [
         {
             "keywords": ["function", "=>"],
-            "voices":["function.mp3"]
+            "voices":[
+                "function_01.mp3",
+                "function_02.mp3",
+                "function_03.mp3"
+            ]
+        },
+        {
+            "keywords": ["=>"],
+            "voices": ["arrow_function_01.mp3"]
+        },
+        {
+            "keywords": ["if"],
+            "voices": [
+                "if_01.mp3",
+                "if_02.mp3",
+                "if_03.mp3"
+            ]
+        },
+        {
+            "keywords": ["for", "while"],
+            "voices": [
+                "for_01.mp3",
+                "for_02.mp3",
+                "for_03.mp3"
+            ]
+        },
+        {
+            "keywords": ["await"],
+            "voices": [
+                "await_01.mp3",
+                "await_02.mp3",
+                "await_03.mp3"
+            ]
+        },
+        {
+            "keywords": ["catch"],
+            "voices": [
+                "catch_01.mp3",
+                "catch_02.mp3",
+                "catch_03.mp3"
+            ]
+        },
+        {
+            "keywords": ["import"],
+            "voices": [
+                "import_01.mp3",
+                "import_02.mp3"
+            ]
+        },
+        {
+            "keywords": ["v-html"],
+            "voices": [
+                "v_html_01.mp3"
+            ]
+        },
+        {
+            "keywords": ["fuck", "shit"],
+            "voices": [
+                "fuck_pm_01.mp3",
+                "fuck_pm_02.mp3"
+            ]
+        },
+        {
+            "keywords": ["$time_morning"],
+            "voices": ["time_morning_01.mp3"]
+        },
+        {
+            "keywords": ["$time_before_noon"],
+            "voices": [
+                "time_before_noon_01.mp3",
+                "time_before_noon_02.mp3",
+                "time_before_noon_03.mp3",
+                "time_before_noon_04.mp3"
+            ]
+        },
+        {
+            "keywords": ["$time_noon"],
+            "voices": ["time_noon_01.mp3"]
+        },
+        {
+            "keywords": ["$time_evening"],
+            "voices": ["time_evening_01.mp3"]
+        },
+        {
+            "keywords": ["$time_midnight"],
+            "voices": ["time_midnight_01.mp3"]
+        },
+        {
+            "keywords": ["$time_each_our"],
+            "voices": [
+                "time_each_our_01.mp3",
+                "time_each_our_02.mp3",
+                "time_each_our_03.mp3",
+                "time_each_our_04.mp3",
+                "time_each_our_05.mp3"
+            ]
         }
     ]
 }

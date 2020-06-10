@@ -3,7 +3,9 @@ const os = require("os");
 const vscode = require("vscode");
 const express = require("express")
 const bodyParser = require("body-parser");
+const multer  = require('multer')
 const getPort = require("get-port");
+const assets = require("./assets.js");
 const share = require("./share.js");
 const open = require("open");
 
@@ -36,9 +38,47 @@ module.exports = async function () {
         share.playVoiceRes = res;
     });
 
-    app.get("/voice-packages", (req, res) => {
+    app.get("/voice-packages", async (req, res) => {
+        const { reload } = req.query;
+        if (reload) {
+            await assets.load();
+        }
         res.json(share.maindata);
     })
+
+    var upload = multer({ dest: share.PATH_TEMP });
+    app.post("/import-voice-package", upload.single("file"), async (req, res, next) => {
+        try {
+            await assets.add(req.file.path)
+        } catch (e) {
+            res.json({
+                err: true,
+                errmsg: e.toString()
+            });
+            return;
+        }
+        
+        res.send({ err: false });
+        next();
+    })
+
+    app.post("/remove-voice-package", async (req, res) => {
+        const {
+            name
+        } = req.body;
+
+        try {
+            await assets.remove(name);
+        } catch (e) {
+            res.json({
+                err: true,
+                errmsg: e.toString()
+            });
+            return;
+        }
+
+        res.json({ err: false });
+    });
 
     share.app = app;
     share.showTip = function () {

@@ -3,6 +3,7 @@ import Vue from "vue/dist/vue.js";
 var store = new Vue({
     data() {
         return {
+            i18n: null,
             theme: "light",
             color: "poe"
         }

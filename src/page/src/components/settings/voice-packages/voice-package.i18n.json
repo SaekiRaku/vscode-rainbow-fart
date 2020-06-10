@@ -1,0 +1,12 @@
+{
+    "en": {
+        "import": "Import",
+        "refresh": "Refresh",
+        "get-more": "Get More"
+    },
+    "zh": {
+        "import": "导入",
+        "refresh": "刷新",
+        "get-more": "获取更多"
+    }
+}

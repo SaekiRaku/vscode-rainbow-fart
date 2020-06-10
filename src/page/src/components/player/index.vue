@@ -83,7 +83,13 @@ export default {
             audio.play();
         },
         async requestPlaySound() {
-            let response = await axios.get("/playsound");
+            var response;
+            try {
+                response = await axios.get("/playsound");
+            }catch(e){
+                this.requestPlaySound();
+                return;
+            }
             let voice = response.data;
             if(voice.lastIndexOf(".") < voice.length - 5){
                 return;

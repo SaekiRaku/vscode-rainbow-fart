@@ -1,14 +1,23 @@
 <template>
     <div class="container">
+        <input ref="file" type="file" hidden @change="requestImport">
         <div class="action-bar">
-            <q-button type="primary">Import</q-button>
-            <q-button>Get More</q-button>
+            <q-button @click="handleClickImport" type="primary">{{ $t("import") }}</q-button>
+            <q-button @click="requestVoicePackagesList(true)">{{ $t("refresh") }}</q-button>
+            <q-button>{{ $t("get-more") }}</q-button>
         </div>
         <q-divider class="divider"></q-divider>
         <center v-if="loading">
             <q-icon class="loading" name="loading" animation="rotate"></q-icon>
         </center>
-        <VoicePackageItem v-else v-for="(item, index) in list" :key="index" :data="item"></VoicePackageItem>
+        <VoicePackageItem
+            v-else
+            class="voice-package-item"
+            v-for="(item, index) in list"
+            :key="index"
+            :data="item"
+            @remove="requestRemove"
+        ></VoicePackageItem>
     </div>
 </template>
 
@@ -16,43 +25,77 @@
 @import "~@qiqi1996/qi-design-vue/standard.less";
 
 .action-bar {
-    padding: 2*@grid;
+    padding: 2 * @grid;
 }
 
 .divider {
-    margin-bottom: 3*@grid;
+    margin-bottom: 3 * @grid;
 }
 
 .loading {
     font-size: 24px;
     margin: 0px auto;
 }
+
+.voice-package-item {
+    margin-bottom: 2*@grid;
+}
 </style>
 
 <script>
 import axios from "axios";
+import messages from "./voice-package.i18n.json";
 import VoicePackageItem from "./voice-package-item.vue";
 
 export default {
+    i18n: {
+        messages
+    },
     components: {
         VoicePackageItem
     },
-    data(){
+    data() {
         return {
             loading: true,
             list: []
-        }
+        };
     },
-    mounted(){
+    mounted() {
         this.requestVoicePackagesList();
     },
     methods: {
-        async requestVoicePackagesList(){
+        handleClickImport(){
+            this.$refs["file"].value = null;
+            this.$refs["file"].click();
+        },
+        async requestVoicePackagesList(reload) {
             this.loading = true;
-            let response = await axios.get("/voice-packages");
+            let response = await axios.get("/voice-packages", {
+                params: { reload }
+            });
             this.list = response.data;
             this.loading = false;
+        },
+        async requestImport(evt){
+            let file = evt.target.files[0];
+            let form = new FormData();
+            form.append("file", file);
+            let response = await axios.post("/import-voice-package", form);
+            if(response.data.err){
+                this.$qidesign.toast(`Import Failed: ${response.data.errmsg}`);
+                return;
+            }
+            this.requestVoicePackagesList(true);
+            this.$qidesign.toast(`Import Succeed`);
+        },
+        async requestRemove(evt){
+            let response = await axios.post("/remove-voice-package", {name: evt.name});
+            if(response.data.err){
+                this.$qidesign.toast(`Remove Failed: ${response.data.errmsg}`);
+            }else{
+                this.requestVoicePackagesList(true);
+            }
         }
     }
-}
+};
 </script>

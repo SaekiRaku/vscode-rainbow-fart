@@ -6,6 +6,7 @@ import "@qiqi1996/qi-design-vue/style.css";
 import "./styles/common.less";
 
 import App from "./app.vue";
+import store from './store';
 
 Vue.use(VueI18N);
 Vue.use(QiDesignVue);
@@ -24,9 +25,11 @@ if (supportLanguage.indexOf(currentLanguage) != -1) {
     }
 }
 const i18n = new VueI18N({
-    // locale,
+    locale,
     silentFallbackWarn: true,
 })
+
+store.i18n = i18n;
 
 const vm = new Vue({
     el: "#app",
