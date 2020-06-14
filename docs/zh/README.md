@@ -19,7 +19,7 @@
 ## 安装与使用
 
 <center>
-    <a :href="`${URL_PREFIX}/releases/rainbow-fart-${VERSION}.vsix`" class="download">下载插件 Version {{VERSION}}</a>
+    <a :href="URL_PREFIX + '/releases/rainbow-fart-' + VERSION + '.vsix'" class="download">下载插件 Version {{VERSION}}</a>
     <br>
     <a href="https://github.com/saekiraku/vscode-rainbow-fart/releases">查看历史版本</a>
     <!-- <a href="https://github.com/saekiraku/vscode-rainbow-fart/releases">查找更多语音包</a> -->
@@ -27,7 +27,7 @@
 
 <style>
 .download {
-    background: #CC8800;
+    background: #009688;
     text-align: center;
     color: #FFF;
     font-weight: bolder;

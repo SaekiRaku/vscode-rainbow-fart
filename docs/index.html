@@ -22,26 +22,25 @@
     <script src="./sidebar.en.js"></script>
     <script>
     // https://docute.org/zh/
-    new Docute({
+    var config = {
         target: '#docute',
         title: "VSCode Rainbow Fart",
-        cssVariables: function(){
-            return {
-                accentColor: "#CC8800",
-                linkColor: "#CC8800",
-                navLinkBorderColor: "#CC8800",
-            }
-        },
         darkThemeToggler: true,
         detectSystemDarkTheme: true,
         editLinkBase: "https://github.com/saekiraku/vscode-rainbow-fart/blob/master/docs",
-        ...I18N_EN,
 
         overrides: {
             "/en/": I18N_EN,
             "/zh/": I18N_ZH
         }
-    });
+    };
+
+    for(let key in I18N_EN){
+        console.log(key);
+        config[key] = I18N_EN[key]
+    }
+
+    new Docute(config);
     </script>
 </body>
 
