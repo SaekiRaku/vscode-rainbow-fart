@@ -38,7 +38,7 @@ module.exports = function () {
                 return;
             }
             inputHistory += change.text;
-            if (inputHistory.length > 100) {
+            if (inputHistory.replace(/\s/g, "").length > 100) {
                 inputHistory = inputHistory.slice(inputHistory.length - 100 - 1);
             }
             try {

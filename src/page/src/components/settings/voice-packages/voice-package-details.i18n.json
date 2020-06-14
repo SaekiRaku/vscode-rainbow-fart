@@ -1,0 +1,14 @@
+{
+    "en": {
+        "voice-assets": "Voice Assets",
+        "keywords": "Keywords",
+        "voices": "Voices",
+        "play": "Play"
+    },
+    "zh": {
+        "voice-assets": "语音资源",
+        "keywords": "关键字",
+        "voices": "语音",
+        "play": "播放"
+    }
+}

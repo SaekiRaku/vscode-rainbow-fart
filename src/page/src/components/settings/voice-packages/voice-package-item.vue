@@ -1,12 +1,16 @@
 <template>
-    <q-panel class="container" secondary>
-        <q-switch class="active-switch"></q-switch>
+    <q-panel class="container" secondary @click="doShowDetails">
+        <!-- <q-switch class="active-switch"></q-switch> -->
+
         <q-avatar :src="avatarLight" :src-dark="avatarDark" shape="rounded-square" size="large"></q-avatar>
+
         <div class="info">
             <q-title :level="3">{{ data["display-name"] || data["name"] }}</q-title>
             <q-footnote mode="normal">{{ data["description"] }}</q-footnote>
         </div>
+
         <q-divider class="divider"></q-divider>
+
         <div class="panel">
             <div class="panel-item">
                 <q-icon name="code"></q-icon>
@@ -17,15 +21,10 @@
                 <q-icon name="user"></q-icon>
                 <q-text>{{ $t(data["gender"]) }}</q-text>
             </div>
-            <q-divider type="vertical"></q-divider>
-            <div class="panel-item">
-                <q-icon name="dots"></q-icon>
-                <q-text>Details</q-text>
-            </div>
 
-            <q-theme class="panel-item" style="float: right;" color="enjolras">
+            <q-theme class="panel-item" style="float: right; margin: 0px;" color="enjolras" @click.native.stop="doRemove">
                 <q-icon name="trash"></q-icon>
-                <q-text @click.native="doRemove"><strong>{{ $t("remove") }}</strong></q-text>
+                <q-text><strong>{{ $t("remove") }}</strong></q-text>
             </q-theme>
         </div>
     </q-panel>
@@ -34,11 +33,16 @@
 <style lang="less" scoped>
 @import "~@qiqi1996/qi-design-vue/standard.less";
 
+.container:hover {
+    transform: scale(1.01);
+}
+
 .container {
     border-radius: 10px;
     padding: 3*@grid;
     padding-bottom: @grid;
     position: relative;
+    cursor: pointer;
 
     .active-switch {
         position: absolute;
@@ -53,6 +57,7 @@
     }
 
     .info {
+        width: calc(~"100% - 104px");
         display: inline-block;
         vertical-align: top;
 
@@ -107,9 +112,6 @@ export default {
     props: {
         data: Object
     },
-    mounted(){
-        console.log(this.data);
-    },
     computed: {
         avatarLight(){
             let avatar = this.data["avatar"];
@@ -129,6 +131,9 @@ export default {
         }
     },
     methods: {
+        doShowDetails(){
+            this.$emit("showDetails");
+        },
         doRemove(){
             this.$emit("remove", {name:this.data.name});
         }

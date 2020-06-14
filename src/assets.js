@@ -12,7 +12,7 @@ const requiredProperties = ["name", "version", "contributes"];
 async function init () {
     console.log(share.PATH_GLOBAL);
 
-    await fs.createDirectory(vscode.Uri.parse(share.PATH_VOICE_PACKAGES));
+    await fs.createDirectory(share.uri(share.PATH_VOICE_PACKAGES));
     
     const sourceFiles = glob("*", {
         cwd: __dirname + "/built-in-voice-packages"
@@ -25,15 +25,15 @@ async function init () {
     for (let i in sourceFiles) {
         var sourceName = sourceFiles[i];
         builtInVoicePackages.push(sourceName);
-        let sourceFolderUri = vscode.Uri.parse(path.resolve(__dirname, "built-in-voice-packages", sourceName));
-        let targetFolderUri = vscode.Uri.parse(path.resolve(share.PATH_VOICE_PACKAGES, sourceName));
+        let sourceFolderUri = share.uri(path.resolve(__dirname, "built-in-voice-packages", sourceName));
+        let targetFolderUri = share.uri(path.resolve(share.PATH_VOICE_PACKAGES, sourceName));
 
         if (targetFiles.indexOf(sourceName) == -1) {
             await fs.copy(sourceFolderUri, targetFolderUri);
         } else {
             var sourceManifest, targetManifest;
-            let sourceManifestUri = vscode.Uri.parse(path.resolve(sourceFolderUri.path, "manifest.json"));
-            let targetManifestUri = vscode.Uri.parse(path.resolve(targetFolderUri.path, "manifest.json"));
+            let sourceManifestUri = share.uri(path.resolve(sourceFolderUri.path, "manifest.json"));
+            let targetManifestUri = share.uri(path.resolve(targetFolderUri.path, "manifest.json"));
 
             try {
                 sourceManifest = JSON.parse((await fs.readFile(sourceManifestUri)).toString());
@@ -61,7 +61,7 @@ async function load() {
         var config = {};
         for (let filepath of files) {
             try {
-                let filecontent = await fs.readFile(vscode.Uri.parse(filepath));
+                let filecontent = await fs.readFile(share.uri(filepath));
                 config = Object.assign(config, JSON.parse(filecontent.toString()));
             } catch (e) {
                 console.error(e);
@@ -73,7 +73,7 @@ async function load() {
 }
 
 async function add(filepath) {
-    var file = await fs.readFile(vscode.Uri.parse(filepath));
+    var file = await fs.readFile(share.uri(filepath));
     var zip = await jszip.loadAsync(file);
 
     var manifest
@@ -91,12 +91,12 @@ async function add(filepath) {
 
     let basepath = path.resolve(share.PATH_VOICE_PACKAGES, manifest.name);
     try {
-        fs.delete(vscode.Uri.parse(basepath), { recursive: true })
+        fs.delete(share.uri(basepath), { recursive: true })
     } catch (e) {}
 
-    fs.createDirectory(vscode.Uri.parse(basepath));
+    fs.createDirectory(share.uri(basepath));
     for (let filename in zip.files) {
-        await fs.writeFile(vscode.Uri.parse(path.resolve(basepath, filename)), await zip.file(filename).async("nodebuffer"));
+        await fs.writeFile(share.uri(path.resolve(basepath, filename)), await zip.file(filename).async("nodebuffer"));
     }
 }
 
@@ -104,7 +104,7 @@ async function remove(name) {
     if (builtInVoicePackages.indexOf(name) != -1) {
         throw "Can not remove built-in voice packages";
     }
-    await fs.delete(vscode.Uri.parse(path.resolve(share.PATH_VOICE_PACKAGES, name)), { recursive: true });
+    await fs.delete(share.uri(path.resolve(share.PATH_VOICE_PACKAGES, name)), { recursive: true });
 }
 
 module.exports = {

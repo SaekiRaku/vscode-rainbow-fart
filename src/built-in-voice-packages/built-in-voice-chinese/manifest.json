@@ -6,7 +6,7 @@
     "version": "1.0.0",
     "description": "内置中文语音包",
     "languages": ["javascript"],
-    "author": ["Alice Moon"],
+    "author": "Alice Moon",
     "gender": "female",
-    "locale": "Chinese"
+    "locale": "zh"
 }

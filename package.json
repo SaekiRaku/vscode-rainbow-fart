@@ -1,58 +1,60 @@
 {
-    "publisher": "saekiraku",
-    "icon": "resources/logo.png",
-    "name": "rainbow-fart",
-    "displayName": "🌈 Rainbow Fart",
-    "description": "This extension will keep giving you compliment while you are coding.",
-    "version": "1.0.2",
-    "engines": {
-        "vscode": "^1.33.0"
-    },
-    "repository": {
-        "url": "https://github.com/SaekiRaku/vscode-rainbow-fart"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:rainbow-fart.enable"
-    ],
-    "main": "./src/index.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "rainbow-fart.enable",
-                "title": "🌈 Enable Rainbow Fart"
-            }
-        ]
-    },
-    "scripts": {
-        "dev:page": "parcel         src/page/src/index.html -d src/page/dist --cache-dir src/page/.cache",
-        "build:page": "parcel build src/page/src/index.html -d src/page/dist --cache-dir src/page/.cache --no-minify",
-        "build": "npm run build:page && vsce package"
-    },
-    "devDependencies": {
-        "@qiqi1996/qi-design-vue": "^0.9.1",
-        "@types/node": "^13.11.0",
-        "@types/vscode": "^1.33.0",
-        "@vue/component-compiler-utils": "^3.1.2",
-        "esm": "^3.2.25",
-        "less": "^3.11.1",
-        "parcel-bundler": "^1.12.4",
-        "vsce": "^1.75.0",
-        "vue": "^2.6.11",
-        "vue-template-compiler": "^2.6.11"
-    },
-    "dependencies": {
-        "axios": "^0.19.2",
-        "body-parser": "^1.19.0",
-        "express": "^4.17.1",
-        "get-port": "^5.1.1",
-        "glob": "^7.1.6",
-        "jszip": "^3.4.0",
-        "multer": "^1.4.2",
-        "open": "^7.0.4",
-        "vue-hot-reload-api": "^2.3.4",
-        "vue-i18n": "^8.18.1"
-    }
+  "publisher": "saekiraku",
+  "icon": "resources/logo.png",
+  "name": "rainbow-fart",
+  "displayName": "🌈 Rainbow Fart",
+  "description": "This extension will keep giving you compliment while you are coding.",
+  "version": "1.1.0",
+  "engines": {
+    "vscode": "^1.33.0"
+  },
+  "repository": {
+    "url": "https://github.com/SaekiRaku/vscode-rainbow-fart"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:rainbow-fart.enable"
+  ],
+  "main": "./src/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rainbow-fart.enable",
+        "title": "🌈 Enable Rainbow Fart"
+      }
+    ]
+  },
+  "scripts": {
+    "dev:page": "parcel         src/page/src/index.html -d src/page/dist --cache-dir src/page/.cache",
+    "dev:docs": "serve docs",
+    "build:page": "parcel build src/page/src/index.html -d src/page/dist --cache-dir src/page/.cache --no-minify",
+    "build": "rm -rf src/page/dist && node -r esm scripts/before-build.js && npm run build:page && vsce package && node -r esm scripts/after-build.js"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.0",
+    "@types/vscode": "^1.33.0",
+    "@vue/component-compiler-utils": "^3.1.2",
+    "esm": "^3.2.25",
+    "json-format": "^1.0.1",
+    "less": "^3.11.1",
+    "parcel-bundler": "^1.12.4",
+    "vsce": "^1.75.0",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "@qiqi1996/qi-design-vue": "^0.10.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "get-port": "^5.1.1",
+    "glob": "^7.1.6",
+    "jszip": "^3.4.0",
+    "multer": "^1.4.2",
+    "open": "^7.0.4",
+    "vue-hot-reload-api": "^2.3.4",
+    "vue-i18n": "^8.18.1"
+  }
 }

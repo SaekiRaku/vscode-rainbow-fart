@@ -46,6 +46,11 @@ module.exports = async function () {
         res.json(share.maindata);
     })
 
+    app.get("/open-voice-packages-directory", async (req, res) => {
+        open(share.PATH_VOICE_PACKAGES);
+        res.send();
+    })
+
     var upload = multer({ dest: share.PATH_TEMP });
     app.post("/import-voice-package", upload.single("file"), async (req, res, next) => {
         try {

@@ -4,20 +4,25 @@
         <div class="action-bar">
             <q-button @click="handleClickImport" type="primary">{{ $t("import") }}</q-button>
             <q-button @click="requestVoicePackagesList(true)">{{ $t("refresh") }}</q-button>
-            <q-button>{{ $t("get-more") }}</q-button>
+            <q-button @click="requestOpenVoicePackagesDirectory()">{{ $t("open-voice-packages-directory") }}</q-button>
+            <q-button href="https://github.com/topics/vscode-rainbow-fart" target="_blank">{{ $t("get-more") }}</q-button>
         </div>
         <q-divider class="divider"></q-divider>
         <center v-if="loading">
             <q-icon class="loading" name="loading" animation="rotate"></q-icon>
         </center>
+
         <VoicePackageItem
             v-else
             class="voice-package-item"
             v-for="(item, index) in list"
             :key="index"
             :data="item"
-            @remove="requestRemove"
+            @remove="requestRemove(item)"
+            @showDetails="doShowDetails(item)"
         ></VoicePackageItem>
+
+        <VoicePackageDetails :data="currentDetails"></VoicePackageDetails>
     </div>
 </template>
 
@@ -46,17 +51,20 @@
 import axios from "axios";
 import messages from "./voice-package.i18n.json";
 import VoicePackageItem from "./voice-package-item.vue";
+import VoicePackageDetails from "./voice-package-details.vue";
 
 export default {
     i18n: {
         messages
     },
     components: {
-        VoicePackageItem
+        VoicePackageItem,
+        VoicePackageDetails
     },
     data() {
         return {
             loading: true,
+            currentDetails: {},
             list: []
         };
     },
@@ -95,6 +103,13 @@ export default {
             }else{
                 this.requestVoicePackagesList(true);
             }
+        },
+        requestOpenVoicePackagesDirectory(){
+            axios.get("/open-voice-packages-directory");
+        },
+        doShowDetails(item){
+            this.currentDetails = item;
+            this.$qidesign.open("voice-package-details")
         }
     }
 };

@@ -2,11 +2,13 @@
     "en": {
         "import": "Import",
         "refresh": "Refresh",
+        "open-voice-packages-directory": "Open Voice Packages Directory",
         "get-more": "Get More"
     },
     "zh": {
         "import": "导入",
         "refresh": "刷新",
+        "open-voice-packages-directory": "打开语音包目录",
         "get-more": "获取更多"
     }
 }

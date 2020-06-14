@@ -1,10 +1,14 @@
 {
     "en": {
         "male": "Male",
-        "female": "Female"
+        "female": "Female",
+
+        "remove": "Remove"
     },
     "zh": {
         "male": "男音",
-        "female": "女音"
+        "female": "女音",
+
+        "remove": "移除"
     }
 }

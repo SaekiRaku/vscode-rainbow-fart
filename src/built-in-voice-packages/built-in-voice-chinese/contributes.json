@@ -92,11 +92,11 @@
         {
             "keywords": ["$time_each_our"],
             "voices": [
-                "time_each_our_01.mp3",
-                "time_each_our_02.mp3",
-                "time_each_our_03.mp3",
-                "time_each_our_04.mp3",
-                "time_each_our_05.mp3"
+                "time_each_hour_01.mp3",
+                "time_each_hour_02.mp3",
+                "time_each_hour_03.mp3",
+                "time_each_hour_04.mp3",
+                "time_each_hour_05.mp3"
             ]
         }
     ]
