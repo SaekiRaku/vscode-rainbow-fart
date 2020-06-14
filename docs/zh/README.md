@@ -12,8 +12,6 @@
 
 如果您在使用中有任何建议或意见，请在 [GitHub Issues](https://github.com/saekiraku/vscode-rainbow-fart/issues) 上反馈（请尽可能的使用英语）。
 
-对于中国（中文）用户，也可以加入 QQ 群交流：[634121064](https://jq.qq.com/?_wv=1027&k=5lH8p4c)
-
 </Note>
 
 ## 安装与使用
