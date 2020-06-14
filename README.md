@@ -10,23 +10,13 @@
 
 ## 概述
 
-这是一个在你编程时疯狂称赞你的 VSCode 扩展插件（真人语音）。由于当前插件内的语音均为中文，因此不方便发布到 VSCode 商店，所以以 VISX 的形式发布。请直接 [查看文档并下载安装](https://saekiraku.github.io/vscode-rainbow-fart/)。
+这是一个在你编程时持续夸你写的牛逼的扩展，可以根据代码关键字播放贴近代码意义的真人语音。由于当前插件内的语音均为中文，因此不方便发布到 VSCode 商店，所以以 VISX 的形式发布。请直接 [查看文档并下载安装](https://saekiraku.github.io/vscode-rainbow-fart/)。
 
 ## English Description
 
 This is a VSCode extension that keeps giving you compliment while you are coding, for example when you type `function` it will play sound that says you wrote a such good function. However the sounds is recorded in Chinese, so it's may not suitable for you. But you can still modify the source code, like add English version compliment sound file.
 
-Rainbow Fart is a literal translation word from Chinese, it's mean give somebody exaggerated compliment that even seems a little fake. So it's not involved any connection with gay group or something else.
-
-## 特性
-
-* 在你开发时根据你所输入的代码对你表达称赞（真人语音）
-
-## 计划
-
-* 导入语音包及管理、自定义语音，使任意语言的开发者都可以使用此插件。
-* 界面 I18N
-* 触发频次调节
+Rainbow Fart is a literal translation word from Chinese, it's mean give somebody exaggerated compliment that even seems a little fake. It's not involved any connection to specific group or people.
 
 ## Q&A
 
