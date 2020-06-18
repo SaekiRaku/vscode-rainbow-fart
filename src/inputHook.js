@@ -8,6 +8,9 @@ function keywordsCheck() {
     var candidate = [];
 
     share.maindata.forEach(voicePackage => {
+        if (voicePackage.disable) {
+            return;
+        }
         voicePackage.contributes.forEach(contribute => {
             if (!Array.isArray(contribute.keywords)) {
                 contribute.keywords = [contribute.keywords];

@@ -1,6 +1,6 @@
 <template>
     <q-panel class="container" secondary @click="doShowDetails">
-        <!-- <q-switch class="active-switch"></q-switch> -->
+        <q-switch class="enable-switch" :value="isEnabled" @click.native.stop="doChangeDisable()"></q-switch>
 
         <q-avatar :src="avatarLight" :src-dark="avatarDark" shape="rounded-square" size="large"></q-avatar>
 
@@ -44,7 +44,7 @@
     position: relative;
     cursor: pointer;
 
-    .active-switch {
+    .enable-switch {
         position: absolute;
         top: 3*@grid;
         right: 3*@grid;
@@ -128,6 +128,9 @@ export default {
                 return avatar;
             }
             return defaultAvatarDark;
+        },
+        isEnabled(){
+            return !this.data.disable;
         }
     },
     methods: {
@@ -136,6 +139,9 @@ export default {
         },
         doRemove(){
             this.$emit("remove", {name:this.data.name});
+        },
+        doChangeDisable(){
+            this.$emit("changeDisable");
         }
     }
 }

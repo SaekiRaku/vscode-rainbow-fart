@@ -5,6 +5,7 @@ const glob = require("glob").sync;
 const jszip = require("jszip")
 
 const share = require("./share.js");
+const settings = require("./settings.js");
 
 var builtInVoicePackages = [];
 const requiredProperties = ["name", "version", "contributes"];
@@ -67,6 +68,7 @@ async function load() {
                 console.error(e);
             }
         }
+        config.disable = settings.voices.isDisable(config.name);
         maindata.push(config);
     }
     share.maindata = maindata;
@@ -107,9 +109,17 @@ async function remove(name) {
     await fs.delete(share.uri(path.resolve(share.PATH_VOICE_PACKAGES, name)), { recursive: true });
 }
 
+function applySettings() {
+    share.maindata = share.maindata.map((item) => {
+        item.disable = settings.voices.isDisable(item.name);
+        return item;
+    })
+}
+
 module.exports = {
     init,
     load,
     add,
-    remove
+    remove,
+    applySettings
 }

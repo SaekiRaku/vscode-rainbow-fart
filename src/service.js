@@ -5,9 +5,12 @@ const express = require("express")
 const bodyParser = require("body-parser");
 const multer  = require('multer')
 const getPort = require("get-port");
+const open = require("open");
+const _ = require("lodash");
+
 const assets = require("./assets.js");
 const share = require("./share.js");
-const open = require("open");
+const settings = require("./settings.js");
 
 // const interfaces = os.networkInterfaces();
 // const getNetworkAddress = () => {
@@ -85,7 +88,26 @@ module.exports = async function () {
         res.json({ err: false });
     });
 
+    // TODO: All router above that related to voice-package should change to `/voice-packages/...`
+    app.post("/voice-packages/disable", (req, res) => {
+        const {
+            name,
+            disable
+        } = req.body
+
+        if (disable) {
+            settings.voices.addDisable(name);
+        } else {
+            settings.voices.removeDisable(name);
+        }
+
+        assets.applySettings();
+
+        res.json({ err: false });
+    })
+
     share.app = app;
+
     share.showTip = function () {
         vscode.window.showInformationMessage(`🌈 Rainbow Fart is running on http://127.0.0.1:${port}/`, "open").then(result => {
             if (result === "open") {

@@ -20,6 +20,7 @@
             :data="item"
             @remove="requestRemove(item)"
             @showDetails="doShowDetails(item)"
+            @changeDisable="doChangeDisable(item)"
         ></VoicePackageItem>
 
         <VoicePackageDetails :data="currentDetails"></VoicePackageDetails>
@@ -110,6 +111,18 @@ export default {
         doShowDetails(item){
             this.currentDetails = item;
             this.$qidesign.open("voice-package-details")
+        },
+        async doChangeDisable(item){
+            try{
+                await axios.post("/voice-packages/disable", {
+                    name: item.name,
+                    disable: !item.disable
+                });
+            }catch(e){
+                this.$qidesign.toast(`Failed to change the disable state.`);
+                return;
+            }
+            item.disable = !item.disable;
         }
     }
 };

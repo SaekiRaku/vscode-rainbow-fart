@@ -4,6 +4,16 @@ All notable changes to the "vscode-rainbow-fart" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [Unreleased]
+
+### Added
+
+- Enable/Disable voice packages.
+
+### Fixed
+
+- Duplicated key in the details modal.
+
 ## [1.1.0] - 2020-06-14
 
 ### Added

@@ -17,11 +17,11 @@
         <div class="assets">
             <q-title :level="2" style="margin-bottom: 16px">{{ $t("voice-assets") }}</q-title>
 
-            <q-panel class="contribute" v-for="(contribute, cindex) in data.contributes" :key="cindex" secondary>
+            <q-panel class="contribute" v-for="(contribute, cindex) in data.contributes" :key="'c'+cindex" secondary>
                 <q-title :level="3">{{ $t("keywords") }}</q-title>
-                <q-panel class="keyword" v-for="(keyword, kindex) in  UniteToArray(contribute.keywords)" :key="kindex" border><q-text>{{keyword}}</q-text></q-panel>
+                <q-panel class="keyword" v-for="(keyword, kindex) in  UniteToArray(contribute.keywords)" :key="'k'+kindex" border><q-text>{{keyword}}</q-text></q-panel>
                 <q-title :level="3" style="margin-top: 16px;">{{ $t("voices") }}</q-title>
-                <q-panel class="voice" v-for="(voice, vindex) in UniteToArray(contribute.voices)" :key="vindex" border>
+                <q-panel class="voice" v-for="(voice, vindex) in UniteToArray(contribute.voices)" :key="'v'+vindex" border>
                     <q-text>{{voice}}</q-text>
                     <div class="controller">
                         <q-button size="small" @click="play(`${data.name}/${voice}`)">{{ $t("play") }}</q-button>
