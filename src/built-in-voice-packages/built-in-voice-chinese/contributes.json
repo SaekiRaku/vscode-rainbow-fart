@@ -90,7 +90,7 @@
             "voices": ["time_midnight_01.mp3"]
         },
         {
-            "keywords": ["$time_each_our"],
+            "keywords": ["$time_each_hour"],
             "voices": [
                 "time_each_hour_01.mp3",
                 "time_each_hour_02.mp3",
