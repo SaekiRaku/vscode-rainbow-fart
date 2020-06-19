@@ -13,6 +13,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Fixed
 
 - Duplicated key in the details modal.
+- Issue: [#8](https://github.com/SaekiRaku/vscode-rainbow-fart/issues/8)
 
 ## [1.1.0] - 2020-06-14
 

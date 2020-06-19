@@ -6,6 +6,9 @@ const os = require("os");
 
 module.exports = {
     play(name) {
+        if (!name) {
+            return;
+        }
         console.log("Playing voice - " + name);
         this.playVoiceRes && this.playVoiceRes.send(name);
     },

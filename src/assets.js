@@ -39,7 +39,9 @@ async function init () {
             try {
                 sourceManifest = JSON.parse((await fs.readFile(sourceManifestUri)).toString());
                 targetManifest = JSON.parse((await fs.readFile(targetManifestUri)).toString());
-            } catch (e) { }
+            } catch (e) {
+                console.error(e);
+            }
             if (sourceManifest.version != targetManifest.version) {
                 await fs.copy(sourceFolderUri, targetFolderUri, { overwrite: true });
             }

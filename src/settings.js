@@ -36,7 +36,8 @@ async function load() {
         var uri = share.uri(share.PATH_SETTINGS);
         settings = JSON.parse((await fs.readFile(uri)).toString());
     } catch (e) {
-        console.error(e)
+        // TODO: Ignore this error only if settings.json is not exists.
+        // console.error(e)
     }
 }
 
