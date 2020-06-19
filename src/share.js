@@ -17,5 +17,11 @@ module.exports = {
             thepath = "file:///"+thepath.replace(/\\/g,"/");
         }
         return vscode.Uri.parse(thepath);
+    },
+    uriToPath(uri) {
+        if (os.type() == "Windows_NT") {
+            return uri.path.replace("/", "").replace(/\//g, "\\");
+        }
+        return uri.path;
     }
 };

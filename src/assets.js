@@ -33,8 +33,8 @@ async function init () {
             await fs.copy(sourceFolderUri, targetFolderUri);
         } else {
             var sourceManifest, targetManifest;
-            let sourceManifestUri = share.uri(path.resolve(sourceFolderUri.path, "manifest.json"));
-            let targetManifestUri = share.uri(path.resolve(targetFolderUri.path, "manifest.json"));
+            let sourceManifestUri = share.uri(path.resolve(share.uriToPath(sourceFolderUri), "manifest.json"));
+            let targetManifestUri = share.uri(path.resolve(share.uriToPath(targetFolderUri), "manifest.json"));
 
             try {
                 sourceManifest = JSON.parse((await fs.readFile(sourceManifestUri)).toString());
