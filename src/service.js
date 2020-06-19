@@ -34,7 +34,7 @@ module.exports = async function () {
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.text());
     app.use(bodyParser.raw());
-    app.use(express.static(path.resolve(__dirname, "/page/dist")));
+    app.use(express.static(path.resolve(__dirname, "page/dist")));
     
     app.use("/voices", express.static(share.PATH_VOICE_PACKAGES));
     app.get("/playsound", (req, res) => {
