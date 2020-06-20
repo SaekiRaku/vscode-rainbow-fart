@@ -4,7 +4,7 @@
 
 <Note label="Demo Video">
 
-<video src="/en/assets/demo-video-en.mp4" controls width="100%"></video>
+<video :src="URL_PREFIX + '/en/assets/demo-video-en.mp4'" controls width="100%"></video>
 
 </Note>
 
