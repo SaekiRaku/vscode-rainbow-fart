@@ -59,7 +59,7 @@
 
 语音包元信息文件还有很多其他字段，可以展示很多额外的信息（如下）。
 
-<ImageZoom :src="URL_PREFIX + '/assets/ui-settings.png'" :border="true" width="300"/>
+<ImageZoom src="/zh/assets/ui-settings.png" :border="true" width="300"/>
 
 <Note>以下字段均为可选字段</Note>
 

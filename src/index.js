@@ -16,11 +16,10 @@ function activate(context) {
     settings.load();
     assets.init();
     initTimerHook(); 
-    initCommands(context);
     initInputHook();
     initService();
-
-    share.play();
+    
+    initCommands(context);
 }
 
 function deactivate() {}

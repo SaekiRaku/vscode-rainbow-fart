@@ -5,7 +5,7 @@
             <q-button @click="handleClickImport" type="primary">{{ $t("import") }}</q-button>
             <q-button @click="requestVoicePackagesList(true)">{{ $t("refresh") }}</q-button>
             <q-button @click="requestOpenVoicePackagesDirectory()">{{ $t("open-voice-packages-directory") }}</q-button>
-            <q-button href="https://github.com/topics/vscode-rainbow-fart" target="_blank">{{ $t("get-more") }}</q-button>
+            <q-button href="https://github.com/topics/rainbow-fart" target="_blank">{{ $t("get-more") }}</q-button>
         </div>
         <q-divider class="divider"></q-divider>
         <center v-if="loading">
@@ -20,7 +20,7 @@
             :data="item"
             @remove="requestRemove(item)"
             @showDetails="doShowDetails(item)"
-            @changeDisable="doChangeDisable(item)"
+            @changeEnableState="doChangeEnableState(item)"
         ></VoicePackageItem>
 
         <VoicePackageDetails :data="currentDetails"></VoicePackageDetails>
@@ -112,17 +112,17 @@ export default {
             this.currentDetails = item;
             this.$qidesign.open("voice-package-details")
         },
-        async doChangeDisable(item){
+        async doChangeEnableState(item){
             try{
-                await axios.post("/voice-packages/disable", {
+                await axios.post("/voice-packages/change-enabled-state", {
                     name: item.name,
-                    disable: !item.disable
+                    enable: !item.enabled
                 });
             }catch(e){
-                this.$qidesign.toast(`Failed to change the disable state.`);
+                this.$qidesign.toast(`Failed to change the enabled state.`);
                 return;
             }
-            item.disable = !item.disable;
+            item.enabled = !item.enabled;
         }
     }
 };

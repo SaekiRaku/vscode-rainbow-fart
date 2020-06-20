@@ -3,22 +3,22 @@ const fs = vscode.workspace.fs;
 const share = require("./share.js");
 
 var settings = {
-    disableList: []
+    enabledVoicePackages: []
 }
 
 var voices = {
-    isDisable(item) {
-        return (settings.disableList.indexOf(item) != -1);
+    isEnabled(item) {
+        return (settings.enabledVoicePackages.indexOf(item) != -1);
     },
-    addDisable(item) {
-        item && !this.isDisable(item) && settings.disableList.push(item);
+    enable(item) {
+        item && !this.isEnabled(item) && settings.enabledVoicePackages.push(item);
         save();
     },
-    removeDisable(item) {
+    disable(item) {
         if (item) {
-            let index = settings.disableList.indexOf(item);
+            let index = settings.enabledVoicePackages.indexOf(item);
             if (index != -1) {
-                settings.disableList.splice(index, 1);
+                settings.enabledVoicePackages.splice(index, 1);
                 save();
             }
         }
@@ -37,7 +37,13 @@ async function load() {
         settings = JSON.parse((await fs.readFile(uri)).toString());
     } catch (e) {
         // TODO: Ignore this error only if settings.json is not exists.
-        // console.error(e)
+        let locale = JSON.parse(process.env.VSCODE_NLS_CONFIG).locale;
+        if (locale.indexOf("zh") == 0) {
+            settings.enabledVoicePackages = ["built-in-voice-chinese"];
+        } else {
+            settings.enabledVoicePackages = ["built-in-voice-english"];
+        }
+        save();
     }
 }
 

@@ -1,0 +1,9 @@
+{
+    "name": "built-in-voice-english",
+    "display-name": "Built-In Voice (English)",
+    "version": "1.0.0",
+    "description": "This built-in voice package is created by Speech Synthesis. Because I don't have any friends that use English as mother language, if you are interested in this project, it would be nice to have contribute with your voice, no matter about gender, tone color, personality, language, contry etc.",
+    "languages": ["javascript"],
+    "gender": "female",
+    "locale": "en"
+}

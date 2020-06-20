@@ -16,11 +16,25 @@
 
 ## 安装与使用
 
+> Rainbow Fart 插件现以发布到 VSCode 商店，安装过 VSIX 版本的用户请卸载之前的版本，从商店安装。
+
+1. 从 [VSCode 扩展商店](https://marketplace.visualstudio.com/items?itemName=saekiraku.rainbow-fart) 下载并安装。
+2. 在 VSCode 的菜单栏中找到 `查看 - 命令面板`，或使用快捷键 `Ctrl + Shift + P`（MacOS `Command + Shift + P`）呼出 `命令面板`。
+3. 在 `命令面板` 中输入 `> Enable Rainbow Fart` 并回车。
+4. 此时应该会弹出一个消息通知，点击通知上的 `Open` 按钮。
+5. 在打开的页面上点击 `授权`。
+6. 享受编程吧！请尝试在 VSCode 中输入 `function` 关键字。
+
+## 语音包
+
+目前，总共有 2 款内置语音包，分别为中文和英文。为了避免扩展体积过大，不再计划增加更多的内置语音包。你可以在 [这里](https://github.com/topics/rainbow-fart) 找到其他语种、性别、嗓音等等的语音包。
+
+内置的中文语音包由 [@JustKowalski](https://github.com/JustKowalski) 提供。
+
+P.S. 内置的英文语音由语音合成技术创建，因为我希望由以英语为母语的人来录制语音，而我身边暂时没有这样的朋友，所以暂时使用语音合成。
+
 <center>
-    <a :href="URL_PREFIX + '/releases/rainbow-fart-' + VERSION + '.vsix'" class="download">下载插件 Version {{VERSION}}</a>
-    <br>
-    <a href="https://github.com/saekiraku/vscode-rainbow-fart/releases">查看历史版本</a>
-    <!-- <a href="https://github.com/saekiraku/vscode-rainbow-fart/releases">查找更多语音包</a> -->
+    <a href="https://github.com/topics/rainbow-fart" class="download" target="__blank">Get More Voice Packages</a>
 </center>
 
 <style>
@@ -41,27 +55,12 @@
 }
 </style>
 
-1. 下载插件
-2. 在 VSCode 的菜单栏中找到 `查看 - 命令面板`，或使用快捷键 `Ctrl + Shift + P`（MacOS `Command + Shift + P`）
-3. 在 `命令面板` 中输入 `> Extensions: Install from VSIX` 并回车
-4. 在弹出的 `文件选择窗口` 中找到下载的插件并打开
-5. 安装完成，再次呼出 `命令面板` 输入 `> Enable Rainbow Fart` 并回车以启动插件
-6. 点击右下角弹出通知的 `Open` 按钮（或访问 [http://127.0.0.1:7777/](http://127.0.0.1:7777/)）
-7. 遵循打开的网页的说明使用本插件
+## 更多炫酷彩虹屁
 
-## 特性
-
-* 界面适配暗黑模式，让你深夜加班也能愉快地写代码。
-* I18N 支持：简体中文、English。
-* 支持导入自定义语音包
-
-### 内置语音包（中文）特性
-
-* 采用真人语音，共计 34 个音频文件。
-* 目前支持 JavaScript（ES6 ） 语言的常用关键字
-* 提供针对时间的语音：如提醒吃午饭、下班关怀等等
-* 提供针对产品经理的语音：如 `fuck`, `shit`
+* 其他客户端
+  * [Emacs Rainbow Fart](https://github.com/stardiviner/emacs-rainbow-fart)
+  * [IntelliJ Rainbow Fart](https://github.com/izhangzhihao/intellij-rainbow-fart)
 
 ## 开源协议
 
-基于 MIT 开源，包括所有设计资源及音频资源。此外，由于仓库中的音频资源大部分由真人录音，并且根据 MIT 被授权人义务。在此明确：尤其的对于仓库中多媒体资源，您有（单独）标明资源原作者、链接、许可的义务。
+基于 MIT 开源，包括所有设计资源及音频资源。由于仓库中的音频资源大部分由真人录音，并且根据 MIT 被授权人义务。在此明确：尤其的对于仓库中多媒体资源，您有（单独）标明资源作者（[@JustKowalski](https://github.com/JustKowalski) 提供。）、链接、许可的义务。

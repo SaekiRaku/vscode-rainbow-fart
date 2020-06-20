@@ -1,0 +1,24 @@
+{
+    "contributes": [
+        {
+            "keywords": ["func"],
+            "voices": [
+                "function_01.mp3",
+                "function_02.mp3",
+                "function_03.mp3"
+            ]
+        },
+        {
+            "keywords": ["=>"],
+            "voices": [
+                "arrow_function_01.mp3"
+            ]
+        },
+        {
+            "keywords": ["catch"],
+            "voices": [
+                "catch_01.mp3"
+            ]
+        }
+    ]
+}

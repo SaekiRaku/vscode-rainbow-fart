@@ -89,16 +89,16 @@ module.exports = async function () {
     });
 
     // TODO: All router above that related to voice-package should change to `/voice-packages/...`
-    app.post("/voice-packages/disable", (req, res) => {
+    app.post("/voice-packages/change-enabled-state", (req, res) => {
         const {
             name,
-            disable
+            enable
         } = req.body
 
-        if (disable) {
-            settings.voices.addDisable(name);
+        if (enable) {
+            settings.voices.enable(name);
         } else {
-            settings.voices.removeDisable(name);
+            settings.voices.disable(name);
         }
 
         assets.applySettings();

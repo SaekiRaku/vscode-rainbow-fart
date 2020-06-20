@@ -8,7 +8,7 @@ function keywordsCheck() {
     var candidate = [];
 
     share.maindata.forEach(voicePackage => {
-        if (voicePackage.disable) {
+        if (!voicePackage.enabled) {
             return;
         }
         voicePackage.contributes.forEach(contribute => {

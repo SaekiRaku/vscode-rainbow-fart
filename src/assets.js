@@ -70,9 +70,10 @@ async function load() {
                 console.error(e);
             }
         }
-        config.disable = settings.voices.isDisable(config.name);
+        config.enabled = settings.voices.isEnabled(config.name);
         maindata.push(config);
     }
+
     share.maindata = maindata;
 }
 
@@ -113,7 +114,7 @@ async function remove(name) {
 
 function applySettings() {
     share.maindata = share.maindata.map((item) => {
-        item.disable = settings.voices.isDisable(item.name);
+        item.enabled = settings.voices.isEnabled(item.name);
         return item;
     })
 }
