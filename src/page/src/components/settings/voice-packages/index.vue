@@ -32,6 +32,10 @@
 
 .action-bar {
     padding: 2 * @grid;
+
+    .q-button {
+        margin-right: @grid;
+    }
 }
 
 .divider {

@@ -18,7 +18,7 @@
             </div>
             <q-divider type="vertical"></q-divider>
             <div class="panel-item">
-                <q-icon name="user"></q-icon>
+                <q-icon :name="data.gender=='male'?'male':data.gender=='female'?'female':'gender'"></q-icon>
                 <q-text>{{ $t(data["gender"]) }}</q-text>
             </div>
 

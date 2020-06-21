@@ -4,7 +4,7 @@
   "name": "rainbow-fart",
   "displayName": "🌈 Rainbow Fart",
   "description": "This extension will keep giving you compliment while you are coding.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "engines": {
     "vscode": "^1.33.0"
   },
@@ -45,7 +45,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
-    "@qiqi1996/qi-design-vue": "^0.10.0",
+    "@qiqi1996/qi-design-vue": "^0.10.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",

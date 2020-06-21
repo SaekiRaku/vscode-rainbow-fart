@@ -4,6 +4,20 @@ All notable changes to the "vscode-rainbow-fart" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.1] - 2020-06-21
+
+### Added
+
+- Voice Packages are support multilevel directory now.
+
+### Fixed
+
+- Import failed when import a new Voice Package.
+
+### Changed
+
+- Updated the version of the UI component library.
+
 ## [1.2.0] - 2020-06-20
 
 ### Added

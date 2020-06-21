@@ -59,6 +59,7 @@ module.exports = async function () {
         try {
             await assets.add(req.file.path)
         } catch (e) {
+            console.error(e);
             res.json({
                 err: true,
                 errmsg: e.toString()

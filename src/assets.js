@@ -6,6 +6,7 @@ const jszip = require("jszip")
 
 const share = require("./share.js");
 const settings = require("./settings.js");
+const { file } = require("jszip");
 
 var builtInVoicePackages = [];
 const requiredProperties = ["name", "version", "contributes"];
@@ -96,11 +97,14 @@ async function add(filepath) {
 
     let basepath = path.resolve(share.PATH_VOICE_PACKAGES, manifest.name);
     try {
-        fs.delete(share.uri(basepath), { recursive: true })
+        await fs.delete(share.uri(basepath), { recursive: true })
     } catch (e) {}
 
     fs.createDirectory(share.uri(basepath));
     for (let filename in zip.files) {
+        if (zip.files[filename].dir) {
+            continue;
+        }
         await fs.writeFile(share.uri(path.resolve(basepath, filename)), await zip.file(filename).async("nodebuffer"));
     }
 }

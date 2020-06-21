@@ -13,13 +13,15 @@ function activate(context) {
     share.PATH_SETTINGS = path.resolve(share.PATH_GLOBAL, "settings.json");
     share.PATH_VOICE_PACKAGES = path.resolve(share.PATH_GLOBAL, "voice-packages");
 
-    settings.load();
-    assets.init();
-    initTimerHook(); 
-    initInputHook();
-    initService();
-    
     initCommands(context);
+    
+    process.nextTick(() => {
+        settings.load();
+        assets.init();
+        initTimerHook(); 
+        initInputHook();
+        initService();
+    })
 }
 
 function deactivate() {}
