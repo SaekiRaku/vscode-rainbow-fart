@@ -3,7 +3,7 @@
     "display-name": "Built-In Voice (Chinese)",
     "avatar": "avatar.jpg",
     "avatar-dark":"avatar-dark.jpg",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "内置中文语音包",
     "languages": ["javascript"],
     "author": "Alice Moon",

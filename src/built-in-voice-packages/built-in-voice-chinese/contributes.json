@@ -1,7 +1,7 @@
 {
     "contributes": [
         {
-            "keywords": ["function", "=>"],
+            "keywords": ["function", "=>", "func ", "def "],
             "voices":[
                 "function_01.mp3",
                 "function_02.mp3",
@@ -37,7 +37,7 @@
             ]
         },
         {
-            "keywords": ["catch"],
+            "keywords": ["catch", "except", "err != nil", "err!=nil"],
             "voices": [
                 "catch_01.mp3",
                 "catch_02.mp3",
@@ -45,7 +45,7 @@
             ]
         },
         {
-            "keywords": ["import"],
+            "keywords": ["import", "include"],
             "voices": [
                 "import_01.mp3",
                 "import_02.mp3"

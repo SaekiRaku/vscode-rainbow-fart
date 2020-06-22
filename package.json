@@ -4,7 +4,7 @@
   "name": "rainbow-fart",
   "displayName": "🌈 Rainbow Fart",
   "description": "This extension will keep giving you compliment while you are coding.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "engines": {
     "vscode": "^1.33.0"
   },
