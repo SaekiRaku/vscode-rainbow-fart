@@ -20,6 +20,10 @@ var I18N_ZH = {
             link: "/zh/README.md"
         },
         {
+            title: "常见问题",
+            link: "/zh/qa.md"
+        },
+        {
             title: "定制语音包",
             link: "/zh/voice-packages.md"
         }

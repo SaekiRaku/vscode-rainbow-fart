@@ -28,6 +28,7 @@ var voices = {
 function save() {
     var uri = share.uri(share.PATH_SETTINGS);
     var data = Buffer.from(JSON.stringify(settings));
+    console.log(vscode.workspace);
     fs.writeFile(uri, data);
 }
 
