@@ -23,9 +23,9 @@ For more information, please read the [document](https://saekiraku.github.io/vsc
 
 ## Quick Start
 
-1. Install extension from [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=saekiraku.rainbow-fart)
+1. Install extension from [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=saekiraku.rainbow-fart).
 2. Press `Ctrl + Shift + P`（MacOS `Command + Shift + P`）to bring up `Command Panel`.
-3. Type `> Enable Rainbow Fart` into `Command Panel`
+3. Type `> Enable Rainbow Fart` into `Command Panel`.
 4. An notification should be poped up at the corner, click the `Open` on that notification.
 5. Click `Authorization` on the opend page.
 6. Enjoy coding! try to type `function` in your VSCode.
