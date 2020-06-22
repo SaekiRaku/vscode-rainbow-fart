@@ -4,7 +4,7 @@
   "name": "rainbow-fart",
   "displayName": "🌈 Rainbow Fart",
   "description": "This extension will keep giving you compliment while you are coding.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "engines": {
     "vscode": "^1.33.0"
   },
@@ -49,7 +49,6 @@
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "get-port": "^5.1.1",
     "glob": "^7.1.6",
     "jszip": "^3.4.0",
     "lodash": "^4.17.15",

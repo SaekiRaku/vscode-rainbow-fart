@@ -4,7 +4,7 @@ const vscode = require("vscode");
 const express = require("express")
 const bodyParser = require("body-parser");
 const multer  = require('multer')
-const getPort = require("get-port");
+const findAvailablePort = require("./findAvailablePort.js");
 const open = require("open");
 const _ = require("lodash");
 
@@ -26,7 +26,7 @@ const settings = require("./settings.js");
 
 module.exports = async function () {
 
-    let port = await getPort({ port: 7777 });
+    let port = await findAvailablePort(7777);
 
     const app = express();
 
