@@ -21,7 +21,7 @@ Languages: 简体中文 | [English](./README.md)
 
 ## 快速上手
 
-> Rainbow Fart 插件现以发布到 VSCode 商店，安装过 VSIX 版本的用户请卸载之前的版本，从商店安装。
+> Rainbow Fart 插件现已发布到 VSCode 商店，安装过 VSIX 版本的用户请卸载之前的版本，从商店安装。
 
 1. 从 [VSCode 扩展商店](https://marketplace.visualstudio.com/items?itemName=saekiraku.rainbow-fart) 下载并安装。
 2. 在 VSCode 的菜单栏中找到 `查看 - 命令面板`，或使用快捷键 `Ctrl + Shift + P`（MacOS `Command + Shift + P`）呼出 `命令面板`。
