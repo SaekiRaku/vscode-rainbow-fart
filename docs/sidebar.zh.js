@@ -20,6 +20,10 @@ var I18N_ZH = {
             link: "/zh/README.md"
         },
         {
+            title: "更多炫酷彩虹屁",
+            link: "/zh/awesome-rainbow-fart.md"
+        },
+        {
             title: "常见问题",
             link: "/zh/qa.md"
         },

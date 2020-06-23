@@ -21,6 +21,14 @@ var I18N_EN = {
             link: "/en/README.md"
         },
         {
+            title: "Awesome Rainbow Fart",
+            link: "/en/awesome-rainbow-fart.md"
+        },
+        {
+            title: "Trouble Shooting",
+            link: "/en/qa.md"
+        },
+        {
             title: "Customize Voice Package",
             link: "/en/voice-packages.md"
         }

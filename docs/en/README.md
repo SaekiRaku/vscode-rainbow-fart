@@ -53,16 +53,6 @@ P.S. The voice of Chinese edition is recorded by real people if you have interes
 }
 </style>
 
-## Awesome Rainbow Fart
-
-Thanks for all the outstanding contributions from the open source community!
-
-### Other Client
-
-* [Emacs Rainbow Fart](https://github.com/stardiviner/emacs-rainbow-fart)
-* [IntelliJ Rainbow Fart](https://github.com/izhangzhihao/intellij-rainbow-fart)
-* [Vim (coc)](https://github.com/iamcco/coc-rainbow-fart)
-
 ## License
 
 Open source based on MIT, including all design resources and audio resources. In addition, since most of the audio resources are recorded by real people, and under the obligations of the MIT licensee. Here it is clarify: Especially for multimedia resources in the repo, you have the obligation to (separately) indicate the original author, link, and permission of the resource.

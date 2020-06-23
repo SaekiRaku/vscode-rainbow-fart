@@ -34,7 +34,7 @@
 P.S. 内置的英文语音由语音合成技术创建，因为我希望由以英语为母语的人来录制语音，而我身边暂时没有这样的朋友，所以暂时使用语音合成。
 
 <center>
-    <a href="https://github.com/topics/rainbow-fart" class="download" target="__blank">Get More Voice Packages</a>
+    <a href="https://github.com/topics/rainbow-fart" class="download" target="__blank">获取更多语音包</a>
 </center>
 
 <style>
@@ -54,22 +54,6 @@ P.S. 内置的英文语音由语音合成技术创建，因为我希望由以英
     opacity: 0.75;
 }
 </style>
-
-## 更多炫酷彩虹屁
-
-感谢所有来自开源社区的优秀贡献！
-
-### 其他客户端
-
-* [Emacs Rainbow Fart](https://github.com/stardiviner/emacs-rainbow-fart)
-* [IntelliJ Rainbow Fart](https://github.com/izhangzhihao/intellij-rainbow-fart)
-* [Vim (coc)](https://github.com/iamcco/coc-rainbow-fart)
-
-### 语音包
-
-* https://github.com/SaekiRaku/vscode-rainbow-fart/issues/22
-* https://github.com/zthxxx/kugimiya-rainbow-fart
-* https://github.com/trotsky1997/RedAlert-Voice-Pack
 
 ## 开源协议
 
