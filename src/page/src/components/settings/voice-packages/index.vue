@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-        <input ref="file" type="file" hidden @change="requestImport">
         <div class="action-bar">
             <q-button @click="handleClickImport" type="primary">{{ $t("import") }}</q-button>
             <q-button @click="requestVoicePackagesList(true)">{{ $t("refresh") }}</q-button>
             <q-button @click="requestOpenVoicePackagesDirectory()">{{ $t("open-voice-packages-directory") }}</q-button>
             <q-button href="https://github.com/topics/rainbow-fart" target="_blank">{{ $t("get-more") }}</q-button>
+            <input class="input" ref="file" type="file" @change="requestImport">
         </div>
         <q-divider class="divider"></q-divider>
         <center v-if="loading">
@@ -35,6 +35,13 @@
 
     .q-button {
         margin-right: @grid;
+    }
+
+    .input {
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        opacity: 0;
     }
 }
 
