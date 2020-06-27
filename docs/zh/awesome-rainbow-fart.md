@@ -21,3 +21,4 @@
 * https://github.com/Raymond0212/pcr-rainbow-fart
 * https://github.com/lineuman/jiuweiyaohu-rainbow-fart
 * https://github.com/racherisgenius/Choudidi-rainbow-fart
+* https://github.com/syang-ng/Yuigahama-Yui-rainbow-fart
