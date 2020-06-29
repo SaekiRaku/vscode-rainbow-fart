@@ -55,6 +55,26 @@ The extension also supports multiple keywords sharing an audio file, or sharing 
 }
 ```
 
+You can also use regular expressions for the keywords.
+
+```json
+// manifest.json
+{
+    "contributes": [
+        {
+            "keywords": "function",
+            "regexps": "=>\\s*{",
+            "voices": [
+                "function_01.mp3",
+                "function_02.mp3",
+                "function_03.mp3",
+                // ...
+            ]
+        }
+    ]
+}
+```
+
 ## Step 3: Enrich Voice Pack Metadata
 
 Additional information can be added to voice pack metadata.
