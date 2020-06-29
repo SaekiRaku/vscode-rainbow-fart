@@ -20,10 +20,10 @@
     
                 <q-panel class="contribute" v-for="(contribute, cindex) in data.contributes" :key="'c'+cindex" secondary>
                     <q-title :level="3" v-if="contribute.keywords">{{ $t("keywords") }}</q-title>
-                    <q-panel class="keyword" v-if="contribute.keywords" v-for="(keyword, kindex) in  UniteToArray(contribute.keywords)" :key="'k'+kindex" border><q-text>{{keyword}}</q-text></q-panel>
-                    <q-title :level="3" style="margin-top: 16px;" v-if="contribute.regexps">{{ $t("regexps") }}</q-title>
-                    <q-panel class="keyword" v-if="contribute.regexps" v-for="(regexp, kindex) in  UniteToArray(contribute.regexps)" :key="'k'+kindex" border><q-text>{{regexp}}</q-text></q-panel>
-                    <q-title :level="3" style="margin-top: 16px;">{{ $t("voices") }}</q-title>
+                    <q-panel class="keyword" style="margin-bottom: 16px;" v-if="contribute.keywords" v-for="(keyword, kindex) in  UniteToArray(contribute.keywords)" :key="'k'+kindex" border><q-text>{{keyword}}</q-text></q-panel>
+                    <q-title :level="3" v-if="contribute.regexps">{{ $t("regexps") }}</q-title>
+                    <q-panel class="keyword" style="margin-bottom: 16px;" v-if="contribute.regexps" v-for="(regexp, kindex) in  UniteToArray(contribute.regexps)" :key="'k'+kindex" border><q-text>{{regexp}}</q-text></q-panel>
+                    <q-title :level="3">{{ $t("voices") }}</q-title>
                     <q-panel class="voice" v-for="(voice, vindex) in UniteToArray(contribute.voices)" :key="'v'+vindex" border>
                         <q-text>{{voice}}</q-text>
                         <div class="controller">
