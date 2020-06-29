@@ -12,17 +12,23 @@ function keywordsCheck() {
             return;
         }
         voicePackage.contributes.forEach(contribute => {
-            if (!Array.isArray(contribute.keywords)) {
-                contribute.keywords = [contribute.keywords];
-            }
-            contribute.keywords.forEach(keyword => {
+            var triggered = false;
+            var keywords = [].concat(contribute.keywords || []);
+            keywords.forEach(keyword => {
                 if (inputHistory.indexOf(keyword) != -1) {
-                    if (!Array.isArray(contribute.voices)) {
-                        contribute.voices = [contribute.voices];
-                    }
-                    candidate.push(voicePackage.name + "/" + contribute.voices[Math.floor(contribute.voices.length * Math.random())])
+                    triggered = true;
                 }
             })
+            var regexps = [].concat(contribute.regexps || []);
+            regexps.forEach(regexp => {
+                if (RegExp(regexp).test(inputHistory)) {
+                    triggered = true;
+                }
+            })
+            if (triggered) {
+                var voices = [].concat(contribute.voices);
+                candidate.push(voicePackage.name + "/" + voices[Math.floor(voices.length * Math.random())])
+            }
         });
     });
 
