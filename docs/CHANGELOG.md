@@ -4,6 +4,14 @@ All notable changes to the "vscode-rainbow-fart" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.5] - 2020-06-22
+
+### Fixed
+
+- [Issue #104](https://github.com/SaekiRaku/vscode-rainbow-fart/issues/104)
+
+## [1.2.4] - Deprecated
+
 ## [1.2.3] - 2020-06-22
 
 ### Fixed

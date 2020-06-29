@@ -49,6 +49,9 @@ function playSpecialKeyword(keyword) {
     var candidate = [];
 
     share.maindata.forEach(voicePackage => {
+        if (!voicePackage.enabled) {
+            return;
+        }
         voicePackage.contributes.forEach(contribute => {
             if (!Array.isArray(contribute.keywords)) {
                 contribute.keywords = [contribute.keywords];
