@@ -4,7 +4,13 @@ All notable changes to the "vscode-rainbow-fart" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [1.2.5] - 2020-06-22
+## [1.3.0] - 2020-06-29
+
+### Added
+
+- Add RegExp keywords supports, thanks to [Pull Request #100](https://github.com/SaekiRaku/vscode-rainbow-fart/pull/100)
+
+## [1.2.5] - 2020-06-29
 
 ### Fixed
 
