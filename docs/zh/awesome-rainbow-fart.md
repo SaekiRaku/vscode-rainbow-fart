@@ -4,8 +4,17 @@
 
 ## 其他客户端
 
+### Emacs
+
 * [Emacs Rainbow Fart](https://github.com/stardiviner/emacs-rainbow-fart)
+
+### IntelliJ IDEA
+
 * [IntelliJ Rainbow Fart](https://github.com/izhangzhihao/intellij-rainbow-fart)
+* [IDEA Rainbow Fart(支持自定义关键词和文本)](https://github.com/jadepeng/idea-rainbow-fart)
+
+### Vim
+
 * [Vim (coc)](https://github.com/iamcco/coc-rainbow-fart)
 
 ## 语音包
@@ -23,3 +32,4 @@
 * https://github.com/lineuman/jiuweiyaohu-rainbow-fart
 * https://github.com/racherisgenius/Choudidi-rainbow-fart
 * https://github.com/syang-ng/Yuigahama-Yui-rainbow-fart
+* https://github.com/jadepeng/rainbow-fart-tts/tree/master/voicesPackages
