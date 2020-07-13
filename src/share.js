@@ -6,11 +6,12 @@ const os = require("os");
 
 module.exports = {
     play(name) {
-        if (!name) {
+        if (!name || !this.playVoiceRes) {
             return;
         }
         console.log("Playing voice - " + name);
         this.playVoiceRes && this.playVoiceRes.send(name);
+        this.playVoiceRes = null;
     },
     uri(thepath) {
         if (os.type() == "Windows_NT") {

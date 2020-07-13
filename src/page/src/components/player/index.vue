@@ -61,6 +61,7 @@ export default {
     data(){
         return {
             authorized: false,
+            failedTimes: 0
         }
     },
     mounted(){
@@ -87,9 +88,15 @@ export default {
             try {
                 response = await axios.get("/playsound");
             }catch(e){
-                this.requestPlaySound();
+                if(this.failedTimes > 5){
+                    setTimeout(this.requestPlaySound, 1000);
+                }else{
+                    this.failedTimes++;
+                    this.requestPlaySound();
+                }
                 return;
             }
+            this.failedTime = 0;
             let voice = response.data;
             if(voice.lastIndexOf(".") < voice.length - 5){
                 return;

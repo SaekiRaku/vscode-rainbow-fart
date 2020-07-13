@@ -7,6 +7,7 @@ const multer  = require('multer')
 const findAvailablePort = require("./findAvailablePort.js");
 const open = require("open");
 const _ = require("lodash");
+const message = require("./message");
 
 const assets = require("./assets.js");
 const share = require("./share.js");
@@ -24,9 +25,52 @@ const settings = require("./settings.js");
 // 	}
 // };
 
+function requireCustomPort() {
+    let checkTimeoutID, currentInput;
+
+    let inputbox = vscode.window.createInputBox();
+    inputbox.ignoreFocusOut = true;
+    inputbox.title = message("service.require-port.title");
+    inputbox.placeholder = message("service.require-port.placeholder");
+    inputbox.show()
+
+    inputbox.onDidChangeValue((value) => {
+        currentInput = value;
+        if (checkTimeoutID) {
+            clearTimeout(checkTimeoutID);
+        }
+        checkTimeoutID = setTimeout(async () => {
+            let isAvailable = await findAvailablePort(value, 1);
+            if (isAvailable !== undefined) {
+                inputbox.validationMessage = message("service.require-port.available");
+            } else {
+                inputbox.validationMessage = message("service.require-port.unavailable");
+            }
+        }, 500);
+    })
+
+    return new Promise((resolve, reject) => {
+        inputbox.onDidAccept(async (value) => {
+            resolve(currentInput);
+            inputbox.hide();
+            inputbox.dispose();
+        });
+    })
+
+}
+
 module.exports = async function () {
 
-    let port = await findAvailablePort(7777);
+    var port = await findAvailablePort(7777, 3)
+        
+    if (!port) {
+        port = await requireCustomPort();
+        let isAvailable = await findAvailablePort(port, 1);
+        if (!isAvailable) {
+            vscode.window.showInformationMessage(message("service.failed"));
+            return;
+        }
+    }
 
     const app = express();
 
