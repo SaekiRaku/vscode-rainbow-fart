@@ -9,6 +9,7 @@
         </q-tab>
         <VoicePackages v-if="isTab('0')"></VoicePackages>
         <About v-else-if="isTab('3')"></About>
+        <Player v-else-if="isTab('4')"></Player>
         <div class="none" v-else>
             <q-icon name="sad"></q-icon>
             <q-text>{{ $t("developing") }}</q-text>
