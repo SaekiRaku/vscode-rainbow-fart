@@ -5,6 +5,7 @@
             <q-tab-item value="1" :text="$t('customization')"></q-tab-item>
             <q-tab-item value="2" :text="$t('preference')"></q-tab-item>
             <q-tab-item value="3" :text="$t('about')"></q-tab-item>
+            <q-tab-item value="4" :text="$t('player')"></q-tab-item>
         </q-tab>
         <VoicePackages v-if="isTab('0')"></VoicePackages>
         <About v-else-if="isTab('3')"></About>
@@ -32,7 +33,7 @@
 <script>
 import VoicePackages from "./voice-packages/index.vue";
 import About from "./about/index.vue";
-
+import Player from "./player/index.vue";
 import messages from "./settings.i18n.json";
 
 export default {
@@ -41,6 +42,7 @@ export default {
     },
     components: {
         VoicePackages,
+        Player,
     },
     data(){
         return{

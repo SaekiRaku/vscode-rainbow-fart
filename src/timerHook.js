@@ -1,4 +1,5 @@
 const share = require("./share.js");
+const mp3player = require("./mp3player.js");
 
 var startTime = Date.now();
 var lastHour = (() => {
@@ -67,7 +68,7 @@ function playSpecialKeyword(keyword) {
 
     if (candidate.length) {
         inputHistory = "";
-        share.play(candidate[Math.floor(Math.random() * candidate.length)]);
+        mp3player.play(candidate[Math.floor(Math.random() * candidate.length)]);
     }
 }
 

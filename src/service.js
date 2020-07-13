@@ -151,6 +151,16 @@ module.exports = async function () {
         res.json({ err: false });
     })
 
+    app.get("/player-setting", (req, res) => {      
+        res.json(settings.loadSetting());
+    })
+
+    app.post("/player-setting", (req, res) => {
+
+        settings.saveSetting(req.body);
+        res.json({ err: false });
+    })
+
     share.app = app;
 
     share.showTip = function () {
