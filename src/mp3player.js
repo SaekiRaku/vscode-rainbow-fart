@@ -55,5 +55,13 @@ module.exports = {
                 playFromWS();
             }
         }
+    },
+    resetPlayer(){
+        if(isConnected  && conn){
+            conn.close();
+        }
+        if (settings.loadSetting().type === "server") {
+            connectws()
+        }
     }
 }
