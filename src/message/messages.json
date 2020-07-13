@@ -1,0 +1,24 @@
+{
+    "en": {
+        "service": {
+            "require-port": {
+                "title": "Can't find available port after retry 3 times, please provide one.",
+                "placeholder": "E.g. 7777, 6666, 5555 ...",
+                "available": "✅ Current port is available, please press Enter to confirm.",
+                "unavailable": "❌ Current port is unavailable, please change."
+            },
+            "failed": "Can't enable Rainbow Fart, please retry."
+        }
+    },
+    "zh": {
+        "service": {
+            "require-port": {
+                "title": "经过 3 次尝试后仍无法自动找到可用端口，请手动提供一个。",
+                "placeholder": "例如 7777, 6666, 5555 ...",
+                "available": "✅ 当前端口可用，请按回车确认。",
+                "unavailable": "❌ 当前端口不可用，请更换。"
+            },
+            "failed": "无法启用彩虹屁，请重试。"
+        }
+    }
+}

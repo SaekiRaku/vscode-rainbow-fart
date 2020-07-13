@@ -4,6 +4,16 @@ All notable changes to the "vscode-rainbow-fart" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.4.0] - 2020-06-30
+
+### Added
+
+- Allow to customize the port in case that can't find available port automatically. Fixed [Issue #117](https://github.com/SaekiRaku/vscode-rainbow-fart/issues/117).
+
+### Fixed
+
+- Optimize the sound request cycle when the server is down. Fixed [Issue #110](https://github.com/SaekiRaku/vscode-rainbow-fart/issues/110)
+
 ## [1.3.0] - 2020-06-29
 
 ### Added

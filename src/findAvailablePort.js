@@ -30,8 +30,8 @@ async function checkAvailable(port) {
     return true;
 }
 
-module.exports = async function(port) {
-    while (true) {
+module.exports = async function (port, retry = Infinity) {
+    for (let i = 0; i < retry; i++){
         let available = await checkAvailable(port);
         if (!available) {
             port += Math.ceil(Math.random() * 7);
