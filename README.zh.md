@@ -27,7 +27,7 @@ Languages: 简体中文 | [English](./README.md)
 2. 在 VSCode 的菜单栏中找到 `查看 - 命令面板`，或使用快捷键 `Ctrl + Shift + P`（MacOS `Command + Shift + P`）呼出 `命令面板`。
 3. 在 `命令面板` 中输入 `> Enable Rainbow Fart` 并回车。
 4. 此时应该会弹出一个消息通知，点击通知上的 `Open` 按钮。
-5. 在打开的页面上点击 `授权`。
+5. 系统提供两种播放模式，默认是`web`，使用浏览器播放，在打开的页面上点击 `授权`即可激活。另外一种模式是  `server`，该模式将播放请求通过websocket发送给播放服务器，所以该模式不需要每次点击授权，这里有一个golang开发的示例server[jadepeng/mp3player](https://github.com/jadepeng/mp3player/releases)。
 6. 享受编程吧！请尝试在 VSCode 中输入 `function` 关键字。
 
 ## License
