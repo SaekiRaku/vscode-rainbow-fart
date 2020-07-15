@@ -2,9 +2,9 @@
     "en": {
         "dark-mode": "Dark Mode",
 
-        "description": "A VSCode extension that keep giving you compliment while you are coding.",
-        "tip-rainbow-fart": "What does \"Rainbow Fart\" means?",
-        "tip-rainbow-fart-content": "Rainbow Fart is a literal translation word from Chinese, it means giving somebody exaggerated compliment which even seems a little fake. So it's not involved any connection with gay group or something else.",
+        "description": "A VSCode extension that keeps giving you compliment while you are coding.",
+        "tip-rainbow-fart": "What does \"Rainbow Fart\" mean?",
+        "tip-rainbow-fart-content": "Rainbow Fart is a literal translation word from Chinese, which means giving somebody exaggerated compliment which even seems a little fake. So it's not involved any connection with gay group or something else.",
 
         "permission-required": "Permission Required",
         "settings": "Settings"
