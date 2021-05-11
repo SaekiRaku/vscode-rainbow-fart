@@ -1,9 +1,8 @@
-
 const path = require("path");
 const vscode = require("vscode");
 const express = require("express")
 const bodyParser = require("body-parser");
-const multer  = require('multer')
+const multer = require('multer')
 const findAvailablePort = require("./findAvailablePort.js");
 const open = require("open");
 const _ = require("lodash");
@@ -59,10 +58,10 @@ function requireCustomPort() {
 
 }
 
-module.exports = async function () {
+module.exports = async function() {
 
     var port = await findAvailablePort(7777, 3)
-        
+
     if (!port) {
         port = await requireCustomPort();
         let isAvailable = await findAvailablePort(port, 1);
@@ -79,7 +78,7 @@ module.exports = async function () {
     app.use(bodyParser.text());
     app.use(bodyParser.raw());
     app.use(express.static(path.resolve(__dirname, "page/dist")));
-    
+
     app.use("/voices", express.static(share.PATH_VOICE_PACKAGES));
     app.get("/playsound", (req, res) => {
         share.playVoiceRes = res;
@@ -110,7 +109,7 @@ module.exports = async function () {
             });
             return;
         }
-        
+
         res.send({ err: false });
         next();
     })
@@ -153,7 +152,7 @@ module.exports = async function () {
 
     share.app = app;
 
-    share.showTip = function () {
+    share.showTip = function() {
         vscode.window.showInformationMessage(`🌈 Rainbow Fart is running on http://127.0.0.1:${port}/`, "open").then(result => {
             if (result === "open") {
                 open(`http://127.0.0.1:${port}/`);
@@ -161,7 +160,9 @@ module.exports = async function () {
         })
     }
 
-    app.listen(port, function () {
+    // Limit the web server can only be access by current machine to avoid CSRF.
+    // Thanks to Kirill from Snyk Secrity for discovered the issue and help me out on fixing.
+    app.listen(port, "127.0.0.1", function() {
         share.showTip();
     })
 
