@@ -11,11 +11,11 @@ const { file } = require("jszip");
 var builtInVoicePackages = [];
 const requiredProperties = ["name", "version", "contributes"];
 
-async function init () {
+async function init() {
     console.log(share.PATH_GLOBAL);
 
     await fs.createDirectory(share.uri(share.PATH_VOICE_PACKAGES));
-    
+
     const sourceFiles = glob("*", {
         cwd: __dirname + "/built-in-voice-packages"
     });
@@ -103,6 +103,11 @@ async function add(filepath) {
     fs.createDirectory(share.uri(basepath));
     for (let filename in zip.files) {
         if (zip.files[filename].dir) {
+            continue;
+        }
+        // Filter the files that not extract to the base path to avoid Zip Slip loophole.
+        // Thanks to Kirill from Snyk Secrity for discovered the issue and help me out on fixing.
+        if (path.resolve(basepath, filename).indexOf(basepath) === -1) {
             continue;
         }
         await fs.writeFile(share.uri(path.resolve(basepath, filename)), await zip.file(filename).async("nodebuffer"));
