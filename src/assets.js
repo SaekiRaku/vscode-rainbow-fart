@@ -107,7 +107,7 @@ async function add(filepath) {
         }
         // Filter the files that not extract to the base path to avoid Zip Slip loophole.
         // Thanks to Kirill from Snyk Secrity for discovered the issue and help me out on fixing.
-        if (path.resolve(basepath, filename).indexOf(basepath) === -1) {
+        if (filename.indexOf("../") !== -1 || path.resolve(basepath, filename).indexOf(basepath) === -1) {
             continue;
         }
         await fs.writeFile(share.uri(path.resolve(basepath, filename)), await zip.file(filename).async("nodebuffer"));
