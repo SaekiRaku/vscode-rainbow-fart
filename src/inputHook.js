@@ -1,4 +1,5 @@
 const vscode = require("vscode");
+const mp3player = require("./mp3player.js");
 
 const share = require("./share.js");
 
@@ -34,7 +35,7 @@ function keywordsCheck() {
 
     if (candidate.length) {
         inputHistory = "";
-        share.play(candidate[Math.floor(Math.random() * candidate.length)]);
+        mp3player.play(candidate[Math.floor(Math.random() * candidate.length)]);
     }
 }
 

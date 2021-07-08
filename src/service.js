@@ -11,6 +11,7 @@ const message = require("./message");
 const assets = require("./assets.js");
 const share = require("./share.js");
 const settings = require("./settings.js");
+const mp3player = require("./mp3player.js");
 
 // const interfaces = os.networkInterfaces();
 // const getNetworkAddress = () => {
@@ -147,6 +148,16 @@ module.exports = async function() {
 
         assets.applySettings();
 
+        res.json({ err: false });
+    })
+
+    app.get("/player-setting", (req, res) => {      
+        res.json(settings.loadSetting());
+    })
+
+    app.post("/player-setting", (req, res) => {
+        settings.saveSetting(req.body);
+        mp3player.resetPlayer();
         res.json({ err: false });
     })
 

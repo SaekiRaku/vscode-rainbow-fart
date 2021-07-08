@@ -27,7 +27,7 @@ For more information, please read the [documentation](https://saekiraku.github.i
 2. Press `Ctrl + Shift + P`（MacOS `Command + Shift + P`）to bring up `Command Panel`.
 3. Type `> Enable Rainbow Fart` into `Command Panel`.
 4. A notification should be popped up at the corner. Click `Open` on that notification.
-5. Click `Authorization` on the opened page.
+5. Set player type, defaul mode is `web` (play with web browser), you can click `Authorization` on the opened page to active player. you can aso set player type to `server`, this mode send play request to a websocket mp3 server, you can get a server app from [jadepeng/mp3player](https://github.com/jadepeng/mp3player/releases)
 6. Enjoy coding! Try to type `function` in your VSCode.
 
 ## License

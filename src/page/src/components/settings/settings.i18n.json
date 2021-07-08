@@ -4,6 +4,7 @@
         "customization": "Customization",
         "preference": "Preference",
         "about": "About",
+        "player":"Player Setting",
 
         "developing": "Sorry, this is still under developing."
     },
@@ -12,7 +13,8 @@
         "customization": "定制",
         "preference": "偏好设置",
         "about": "关于",
-
+        "player":"播放器设置",
+        
         "developing": "抱歉，此功能仍在开发中。"
     }
 }

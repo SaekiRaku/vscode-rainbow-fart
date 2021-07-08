@@ -1,0 +1,16 @@
+{
+    "en": {
+        "playerMode": "Player Mode",
+        "playerServer": "Player Server",
+        "web": "use browser",
+        "server": "use websocket server",
+        "save":"Save Setting"
+    },
+    "zh": {
+        "playerMode": "播放器类型",
+        "playerServer": "播放服务器地址",
+        "web": "使用浏览器",
+        "server": "使用播放服务器",
+        "save":"保存配置"
+    }
+}
