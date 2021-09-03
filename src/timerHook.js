@@ -1,9 +1,9 @@
 const share = require("./share.js");
 
 var startTime = Date.now();
-var lastHour = (() => {
+var [lastHour, lastMinutes] = (() => {
     let date = new Date();
-    return date.getHours();
+    return [date.getHours(), date.getMinutes()];
 })();
 
 var schedule = {
@@ -88,6 +88,10 @@ module.exports = function() {
         if (lastHour != current.getHours()) {
             lastHour = current.getHours();
             playSpecialKeyword("$time_each_hour");
+        }
+        if (lastMinutes != current.getMinutes()) {
+            lastMinutes = current.getMinutes();
+            playSpecialKeyword(`$time_${lastHour}:${lastMinutes}`);
         }
         for (let timeName in schedule) {
             let timeString = schedule[timeName];
