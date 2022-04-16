@@ -3,6 +3,7 @@ const vscode = require("vscode");
 const share = require("./share.js");
 
 var inputHistory = "";
+var playHistory = [];
 
 function keywordsCheck() {
     var candidate = [];
@@ -28,6 +29,7 @@ function keywordsCheck() {
             if (triggered) {
                 var voices = [].concat(contribute.voices);
                 candidate.push(voicePackage.name + "/" + voices[Math.floor(voices.length * Math.random())])
+                playHistory.push([contribute, Date.now()]);
             }
         });
     });
