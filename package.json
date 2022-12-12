@@ -48,7 +48,7 @@
     "@qiqi1996/qi-design-vue": "^0.10.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "glob": "^7.1.6",
     "jszip": "^3.4.0",
     "lodash": "^4.17.15",
